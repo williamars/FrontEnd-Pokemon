@@ -5,6 +5,22 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
 }
+
+.loginB, .cadastroB {
+  background-color: #01345E;
+  min-height: 100vh;
+  padding: 7rem;
+}
+
+.loginBox {
+  display: flex;
+  background-color: #b7b7b7;
+  justify-content: center;
+  padding: 2rem;
+}
+.input {
+   width: 100%;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;

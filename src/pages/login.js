@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Layout from "../components/layout"
+import "../components/layout.css"
 
 export default class Login extends Component {
     constructor(props) {
@@ -19,20 +21,21 @@ export default class Login extends Component {
     
     render() {
         return(
-            <div className='Login'>
-                <ol>
-                    <li>
-                        <label>Username</label>
-                        <input type='text' name='username' value={this.state.user.username} onChange={this.handleChange}/>
-                    </li>
-                    <li>
-                        <label>Senha</label>
-                        <input name='password' value={this.state.user.password} onChange={this.handleChange}/>
-                    </li>
-                    <li>
-                        <button onClick={this.doLogin}>Login</button>
-                    </li>
-                </ol>
+            <div className="loginB">
+                <div className='loginBox'>
+                    <ul>
+                        <li>
+                            <input className='input' type='text' placeholder='Enter Username' name='username' value={this.state.user.username} onChange={this.handleChange}/>
+                        </li>
+                        <li>
+                            <input className='input' type='password' name='password' placeholder='Enter Password' value={this.state.user.password} onChange={this.handleChange}/>
+                        </li>
+                        <li>
+                            <button onClick={this.doLogin}>Login</button>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
         );
     }
