@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Layout from "../components/layout"
 import "../components/layout.css"
 
 export default class Login extends Component {
@@ -14,6 +13,7 @@ export default class Login extends Component {
     }
 
     doLogin() {
+        // Fazer o código do login quando o back tiver pronto
         console.log(this.state.user.username)
         console.log(this.state.user.password)
     }
@@ -22,16 +22,19 @@ export default class Login extends Component {
     render() {
         return(
             <div className="loginB">
-                <div className='loginBox'>
+                <div className='control loginBox is-rounded'>
                     <ul>
-                        <li>
-                            <input className='input' type='text' placeholder='Enter Username' name='username' value={this.state.user.username} onChange={this.handleChange}/>
+                        <li className='block'>
+                            <p className='is-size-3 has-text-weight-semibold has-text-primary'>Login</p>
                         </li>
-                        <li>
-                            <input className='input' type='password' name='password' placeholder='Enter Password' value={this.state.user.password} onChange={this.handleChange}/>
+                        <li className='block'>
+                            <input className='input has-background-info-light is-medium' type='text' placeholder='Enter Username' name='username' value={this.state.user.username} onChange={this.handleChange}/>
                         </li>
-                        <li>
-                            <button onClick={this.doLogin}>Login</button>
+                        <li className='block'>
+                            <input className='input has-background-info-light is-medium' type='password' name='password' placeholder='Enter Password' value={this.state.user.password} onChange={this.handleChange}/>
+                        </li>
+                        <li className='block'>
+                            <button className='button' onClick={this.doLogin}>Login</button>
                         </li>
                     </ul>
                 </div>

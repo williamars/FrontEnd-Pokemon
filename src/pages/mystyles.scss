@@ -1,0 +1,17 @@
+@charset "utf-8";
+// If need, change your variables before importing Bulma
+$title-color: #ff0000;
+$azule: #01345E;
+$azulc:  #A8DAFF;
+$amar: #FAD43B;
+$verme:  #7C1704;
+$vermc:  #CC504B;
+
+// Update Bulma's global variables
+$primary: $azule;
+$info: $azulc;
+$sucess: $amar;
+$warning: $verme;
+$danger: $vermc;
+
+@import "~bulma/bulma.sass";
