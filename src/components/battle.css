@@ -1,0 +1,123 @@
+.body {
+    background-color: #455ca3;
+}
+
+.header {
+    margin-left: 12.5%;
+    width: 75%;
+    background-color: #c93634;
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.header-button {
+    background-color: #0fb5fc;
+    border-radius: 50px;
+    border: solid 3px black;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.evento {
+    background-color: #fcc50f;
+    border-radius: 50px;
+    border: solid 3px black;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.big-header {
+    background-color: #702423;
+    height: 10%;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    text-align: center;
+    padding-top: 1%
+}
+
+.container {
+    position: relative;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(4, 40px);
+    justify-content: space-between;
+    width: 30%;
+    margin-left: 33%;
+    margin-top: 190px;
+
+}
+
+.little-container {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.trainer-photo {
+    border-radius: 50px;
+    height: 70%;
+    
+}
+
+.logo-photo {
+    height: 90%;
+    width: 250%;
+    
+}
+
+.big-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.screen-background{
+    margin-top: 70px;
+    padding: 70px;
+    height: 400px;
+    width: 800px;
+    position: absolute;
+    right: 25%;
+
+}
+
+.bot-pokemon {
+    position: absolute;
+    width: 308px;
+    height: 192px;
+    top: 40%;
+    left: 52%;
+}
+
+.person-pokemon {
+    position: absolute;
+    width: 308px;
+    height: 192px;
+    top: 55%;
+    left: 30%;
+}
+
+.box-pokemon {
+    position: absolute;
+    height: 700px;
+    width: 680px;
+    top: 22%;
+    left: 34%;
+}
+
+.little-pokemon {
+    border: 1px solid black;
+}
+
+
+

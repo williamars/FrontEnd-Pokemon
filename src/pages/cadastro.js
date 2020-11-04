@@ -16,6 +16,18 @@ export default class Cadastro extends Component {
         // Fazer o código do login quando o back tiver pronto
         console.log(this.state.user.username)
         console.log(this.state.user.password)
+        axios.post('https://backend-pokemon.herokuapp.com/users', this.state.user).then(resp=> {
+            if(Math.floor(resp.status/100) === 2) {
+            this.setState((state) => {
+            return {
+            lista: [...state.lista, state.usuario],
+            usuario: {username: ''}
+            }
+            })
+            return;
+           
+            
+        })
     }
 
     
