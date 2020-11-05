@@ -33,7 +33,7 @@ export default class Cadastro extends Component {
     render() {
         if(this.state.redirectToReferrer === true) {
             return(
-                    <Redirect noThrow to='/battle/'/>
+                    <Redirect noThrow to='/'/>
             )
         }
 
