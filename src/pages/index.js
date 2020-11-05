@@ -4,9 +4,11 @@ import "./mystyles.scss"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import { BrowserRouter as Router, Redirect } from "react-router-dom"
 
 const IndexPage = () => (
-  <Layout>
+  <Router>
+    <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
@@ -20,6 +22,8 @@ const IndexPage = () => (
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link><br/>
     <Link to="/battle/">Battle</Link>
   </Layout>
+  </Router>
+  
 )
 
 export default IndexPage

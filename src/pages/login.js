@@ -16,6 +16,7 @@ export default class Login extends Component {
         // Fazer o código do login quando o back tiver pronto
         console.log(this.state.user.username)
         console.log(this.state.user.password)
+        
     }
 
     

@@ -18,11 +18,11 @@ export default class StorePage extends Component {
                 </div>
                 <div class="header">
                     <a  class="header-button">Explorar</a>
-                    <a class="header-button">Pokédex</a>
+                    <Link to="/pokedex">Pokedex</Link>
                     <a class="header-button">Amigos</a>
-                    <a class="header-button">Loja</a>
+                    <Link to="/store">Loja</Link>
                     <a class="header-button">Meu Perfil</a>
-                    <a l class="Evento">Evento</a>
+                    <Link to="/battle">Batalha</Link>
                 </div>
                 <div>
                     <div class="big-container">

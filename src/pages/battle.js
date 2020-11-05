@@ -11,24 +11,24 @@ export default class BattlePage extends Component {
     render() {
         return(
             <div>
-                <div class="big-header">
-                    <a><img class="trainer-photo" src="assets/img/trainer_zero.png"></img></a>
-                    <a><img class="logo-photo" src="assets/img/logo.png"></img></a>
-                    <a ><img class="trainer-photo" src="assets/img/menu_logo.png"></img></a>
+                <div className="big-header">
+                    <a><img className="trainer-photo" src="assets/img/trainer_zero.png"></img></a>
+                    <a><img className="logo-photo" src="assets/img/logo.png"></img></a>
+                    <a ><img className="trainer-photo" src="assets/img/menu_logo.png"></img></a>
                 </div>
-                <div class="header">
-                    <a  class="header-button">Explorar</a>
-                    <a class="header-button">Pokédex</a>
-                    <a class="header-button">Amigos</a>
-                    <a class="header-button">Loja</a>
-                    <a class="header-button">Meu Perfil</a>
-                    <a l class="Evento">Evento</a>
+                <div className="header">
+                    <a  className="header-button">Explorar</a>
+                    <Link to="/pokedex">Pokédex</Link>
+                    <a className="header-button">Amigos</a>
+                    <Link to="/store">Loja</Link>
+                    <a className="header-button">Meu Perfil</a>
+                    <Link to="/battle">Batalha</Link>
                 </div>
-                <div class="big-container">
+                <div className="big-container">
                     <div>
-                        <img class="screen-background" src="assets/img/arena_10.png"></img>
-                        <img class="bot-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/normal/lugia.gif"></img>
-                        <img class="person-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif"></img>
+                        <img className="screen-background" src="../images/arena_10.png"></img>
+                        <img className="bot-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/normal/lugia.gif"></img>
+                        <img className="person-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif"></img>
                     </div>
                 </div>
             </div>
