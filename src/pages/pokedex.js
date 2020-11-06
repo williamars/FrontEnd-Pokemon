@@ -16,7 +16,7 @@ function GetNames() {
         // GET request using fetch inside useEffect React hook
         const options = {
             method: 'GET',
-            url: 'https://pokemon-go1.p.rapidapi.com/pokemon_names.json',
+            url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
             headers: {
                 'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
                 'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
@@ -24,7 +24,8 @@ function GetNames() {
             };
         
             axios.request(options).then(function (response) {
-                console.log(response.data[2].name);
+                console.log(response.data[2].pokemon_name);
+                console.log(response.data[2].pokemon_name);
                 //console.log(response.data.lenght());
                 const str = JSON.stringify(response.data);
                 const obj = JSON.parse(str)
@@ -32,21 +33,19 @@ function GetNames() {
                 var count = Object.keys(obj).length;
                 //console.log(count);
                 // Primeiros 152 Pokemóns -> 1ª Geração!
-                for (var i=1; i < 152 ; i+=1) {
+                for (var i=1; i < 394 ; i+=1) {
+                    var pokemon_form;
                     var pokemon_name;
-                    if (obj[i].name.toLowerCase() == "mr. mime"){
-                        pokemon_name = "mr-mime";
-                    }
-                    if (obj[i].name.toLowerCase() == "nidoran♂"){
-                        pokemon_name = "nidoran-m";
-                    }
-                    if (obj[i].name.toLowerCase() == "nidoran♀"){
-                        pokemon_name = "nidoran-f";
-                    } else {
-                        pokemon_name = obj[i].name.toLowerCase()
+                    var pokemon_type;
+                    pokemon_name = obj[i].pokemon_name.toLowerCase()
+                    pokemon_form = obj[i].form.toLowerCase()
+                    pokemon_type = obj[i].type[0].toLowerCase()
+                    var pokemon_list = new Array(pokemon_name, pokemon_form, pokemon_type);
+                    if (!(pokemon_name in totalReactPackages)) {
+                        setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon_list]);
                         
                     }
-                    setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon_name]);
+                   
                     //console.log(totalReactPackages)
                     //setTheArray(oldArray => [...oldArray, (obj[i].name)
                 }
@@ -60,21 +59,6 @@ function GetNames() {
                 console.error(error);
             });
 
-        const optionsType = {
-            method: 'GET',
-            url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
-            headers: {
-                'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
-                'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
-            }
-            };
-            axios.request(optionsType).then(function (responseType) {
-                console.log(responseType.data);
-            }).catch(function (error) {
-                console.error(error);
-            });
-
-
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
     require('../components/pokedex.css')
@@ -83,17 +67,18 @@ function GetNames() {
              
                   {totalReactPackages.map(obj => {
                     console.log(obj);
-                    const url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+obj.toString()+".gif"
+                    var name = obj[0];
+                    var form = obj[1];
+                    var type = obj[2];
+                    var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
                     return(
                         <div class="store-items">
                             <img src={url}></img>
-                            <a class="store-text">{obj}</a>
-                            {/* <a class="store-text">tipo</a> */}
-                            {/* <button class="buy-button">evoluir</button> */}
+                            <a class="store-text-name">{name}</a>
+                            <a class="store-text">Forma: {form}</a> 
+                            <a class="store-text">Tipo: {type}</a> 
+                            <button class="buy-button">Comprar</button>
                         </div>
-                        
-                                
-                  
                         )
                     }
                     )

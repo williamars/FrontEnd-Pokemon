@@ -2,16 +2,13 @@
     background-color: #455ca3;
 }
 
-
-
-
 .big-container {
     display: grid;
     grid-gap: 40px;
     grid-template-columns: repeat(4, 200px);
     justify-content: space-between;
     width: 30%;
-    margin-left: 15%;
+    margin-left: 25%;
     margin-top: 5%;
     
 }
@@ -20,15 +17,14 @@
     border: solid 6px #702423;
     border-radius: 10px;
     background-color:  #65a7bf;
-    height: 200px;
+    height: 300px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 10%
-
-
+    padding: 10%;
+    
 }
 
 
@@ -38,7 +34,13 @@
 }
 
 .store-text {
-    font-size: 20px;
+    font-size: 15px;
+    color: #702423;
+}
+
+.store-text-name {
+    font-size: 30px;
+    color: #702423;
 }
 
 .buy-button{
