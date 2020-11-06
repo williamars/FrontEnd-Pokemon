@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import "../components/layout.css"
 import { Redirect } from '@reach/router'
-
+//import {useDispatch} from 'react-redux';
 export default class Login extends Component {
     constructor(props) {
         super(props)
@@ -12,6 +12,7 @@ export default class Login extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.doLogin = this.doLogin.bind(this)
     }
+    
 
     doLogin() {
         // Fazer o código do login quando o back tiver pronto
@@ -33,6 +34,7 @@ export default class Login extends Component {
         }).catch(erro => console.log(erro))
     }
 
+    //const dispatch = useDispatch();
     
     render() {
         if(this.state.redirectToReferrer === true) {

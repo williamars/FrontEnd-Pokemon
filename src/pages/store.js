@@ -6,26 +6,15 @@ import "../components/layout.css"
 import trainer_zero from "../images/trainer_zero.png"
 import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
-
+import Header from "../components/header"
 export default class StorePage extends Component {
 
     render() {
-        require('../components/store.css')
+        require('../components/pokedex.css')
+        require('../components/header.css')
         return(
             <div>
-                <div class="big-header">
-                    <a><img class="trainer-photo" src={trainer_zero}></img></a>
-                    <a><img class="logo-photo" src={logo}></img></a>
-                    <a ><img class="trainer-photo" src={menu_logo}></img></a>
-                </div>
-                <div class="header">
-                    <a  class="header-button">Explorar</a>
-                    <Link to="/pokedex">Pokedex</Link>
-                    <a class="header-button">Amigos</a>
-                    <Link to="/store">Loja</Link>
-                    <a class="header-button">Meu Perfil</a>
-                    <Link to="/battle">Batalha</Link>
-                </div>
+                <Header/>
                 <div>
                     <div class="big-container">
                         <div class="store-items">
