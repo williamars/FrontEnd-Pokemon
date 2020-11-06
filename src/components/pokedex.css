@@ -14,9 +14,9 @@
 }
 
 .store-items {
-    border: solid 6px #702423;
+    border: solid 6px #cfa211;
     border-radius: 10px;
-    background-color:  #65a7bf;
+    background-color:  #f5dfdc;
     height: 300px;
     text-align: center;
     display: flex;
@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10%;
+    margin-bottom: 20px;
     
 }
 

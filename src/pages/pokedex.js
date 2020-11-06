@@ -76,8 +76,7 @@ function GetNames() {
                             <img src={url}></img>
                             <a class="store-text-name">{name}</a>
                             <a class="store-text">Forma: {form}</a> 
-                            <a class="store-text">Tipo: {type}</a> 
-                            <button class="buy-button">Comprar</button>
+                            <a class="store-text">Tipo: {type}</a>
                         </div>
                         )
                     }
@@ -101,7 +100,7 @@ export default class PokedexPage extends Component {
         require('../components/pokedex.css')
         require('../components/header.css')
         return(
-            <div>
+            <div className="body">
             <Header siteTitle="Pokedex"/>
     
                <GetNames/>
