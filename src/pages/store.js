@@ -1,20 +1,22 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import "../components/layout.css"
-import "../components/store.css"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+//Imagens
+import trainer_zero from "../images/trainer_zero.png"
+import logo from "../images/logo.png"
+import menu_logo from "../images/menu_logo.png"
 
 export default class StorePage extends Component {
 
     render() {
+        require('../components/store.css')
         return(
             <div>
                 <div class="big-header">
-                    <a><img class="trainer-photo" src="assets/img/trainer_zero.png"></img></a>
-                    <a><img class="logo-photo" src="assets/img/logo.png"></img></a>
-                    <a ><img class="trainer-photo" src="assets/img/menu_logo.png"></img></a>
+                    <a><img class="trainer-photo" src={trainer_zero}></img></a>
+                    <a><img class="logo-photo" src={logo}></img></a>
+                    <a ><img class="trainer-photo" src={menu_logo}></img></a>
                 </div>
                 <div class="header">
                     <a  class="header-button">Explorar</a>
