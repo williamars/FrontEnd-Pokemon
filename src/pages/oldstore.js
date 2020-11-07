@@ -54,38 +54,41 @@ function GetNames() {
                         setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon_list]);
                         
                     }
+                   
                     //console.log(totalReactPackages)
                     //setTheArray(oldArray => [...oldArray, (obj[i].name)
                 }
                 totalReactPackages.map(obj => {
+                    //console.log(obj);
+                    //return <td>{obj}</td>
                 })
+                //console.log(totalReactPackages)
+                //return
             }).catch(function (error) {
                 console.error(error);
             });
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
     require('../components/pokedex.css')
     return (
         <div class="big-container">
+             
                   {totalReactPackages.map(obj => {
-                    var btn = "btn"+obj[0];
+                    console.log(obj);
                     var name = obj[0];
                     var form = obj[1];
                     var type = obj[2];
                     var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
                     return(
-                        <div id={obj[0]}>
-                            <div class="store-items">
-                                <img src={url}></img>
-                                <a class="store-text-name">{name}</a>
-                                <a class="store-text">Forma: {form}</a> 
-                                <a class="store-text">Tipo: {type}</a> 
-                                <input type="button" id={btn} value="Escolher"></input>
-                                
-                            </div>
+                        <div class="store-items">
+                            <img src={url}></img>
+                            <a class="store-text-name">{name}</a>
+                            <a class="store-text">Forma: {form}</a> 
+                            <a class="store-text">Tipo: {type}</a> 
+                            <button class="buy-button">Escolher</button>
                         </div>
                         )
-                    
                     }
                     )
                     }
@@ -109,8 +112,10 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
+    
                <GetNames/>
             </div>
+        
         );
     }
 }

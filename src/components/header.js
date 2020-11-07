@@ -16,10 +16,10 @@ const Header = ({ siteTitle }) => (
     </div>
 
     <div class="header">
-        <a  class="header-button">Explorar</a>
+        <a  class="header-button">Meus Pokémons</a>
         <Link to="/pokedex" className="header-button">Pokedex</Link>
         <a class="header-button">Amigos</a>
-        <Link to="/store" className="header-button">Loja</Link>
+        <Link to="/store" className="header-button">Capturar</Link>
         <a class="header-button">Meu Perfil</a>
         <Link to="/battle" className="evento">Batalha</Link>
     </div>

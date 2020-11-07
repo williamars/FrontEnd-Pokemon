@@ -64,27 +64,22 @@ function GetNames() {
     require('../components/pokedex.css')
     return (
         <div class="big-container">
-             
-                  {totalReactPackages.map(obj => {
-                    console.log(obj);
-                    var name = obj[0];
-                    var form = obj[1];
-                    var type = obj[2];
-                    var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
-                    return(
-                        <div class="store-items">
-                            <img src={url}></img>
-                            <a class="store-text-name">{name}</a>
-                            <a class="store-text">Forma: {form}</a> 
-                            <a class="store-text">Tipo: {type}</a>
-                        </div>
-                        )
-                    }
-                    )
-                    }
-                
-             
+            {totalReactPackages.map(obj => {
+                console.log(obj);
+                var name = obj[0];
+                var form = obj[1];
+                var type = obj[2];
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
+                return(
+                    <div class="store-items">
+                        <img src={url}></img>
+                        <a class="store-text-name">{name}</a>
+                        <p class="store-text">Forma: {form}</p>
+                        <p class="store-text">Tipo: {type}</p>
+                    </div>
+                )})}
         </div>
+        
         
     );
 }
@@ -102,7 +97,7 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
-    
+               
                <GetNames/>
             </div>
         

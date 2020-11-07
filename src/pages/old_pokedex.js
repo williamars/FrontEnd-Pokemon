@@ -9,12 +9,6 @@ import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
 import Header from "../components/header"
 
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function GetNames() {
     const [totalReactPackages, setTotalReactPackages] = useState([]);
 
@@ -39,59 +33,55 @@ function GetNames() {
                 var count = Object.keys(obj).length;
                 //console.log(count);
                 // Primeiros 152 Pokemóns -> 1ª Geração!
-                
-                for (var i=1; i < 9 ; i+=1) {
-                    var randomNumber;
+                for (var i=1; i < 394 ; i+=1) {
                     var pokemon_form;
                     var pokemon_name;
                     var pokemon_type;
-                    randomNumber= getRandomIntInclusive(1, 396);
-                    pokemon_name = obj[randomNumber].pokemon_name.toLowerCase()
-                    pokemon_form = obj[randomNumber].form.toLowerCase()
-                    pokemon_type = obj[randomNumber].type[0].toLowerCase()
+                    pokemon_name = obj[i].pokemon_name.toLowerCase()
+                    pokemon_form = obj[i].form.toLowerCase()
+                    pokemon_type = obj[i].type[0].toLowerCase()
                     var pokemon_list = new Array(pokemon_name, pokemon_form, pokemon_type);
                     if (!(pokemon_name in totalReactPackages)) {
                         setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon_list]);
                         
                     }
+                   
                     //console.log(totalReactPackages)
                     //setTheArray(oldArray => [...oldArray, (obj[i].name)
                 }
                 totalReactPackages.map(obj => {
+                    //console.log(obj);
+                    //return <td>{obj}</td>
                 })
+                //console.log(totalReactPackages)
+                //return
             }).catch(function (error) {
                 console.error(error);
             });
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
     require('../components/pokedex.css')
     return (
         <div class="big-container">
-                  {totalReactPackages.map(obj => {
-                    var btn = "btn"+obj[0];
-                    var name = obj[0];
-                    var form = obj[1];
-                    var type = obj[2];
-                    var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
-                    return(
-                        <div id={obj[0]}>
-                            <div class="store-items">
-                                <img src={url}></img>
-                                <a class="store-text-name">{name}</a>
-                                <a class="store-text">Forma: {form}</a> 
-                                <a class="store-text">Tipo: {type}</a> 
-                                <input type="button" id={btn} value="Escolher"></input>
-                                
-                            </div>
-                        </div>
-                        )
-                    
-                    }
-                    )
-                    }
-                
-             
+            {totalReactPackages.map(obj => {
+                console.log(obj);
+                var name = obj[0];
+                var form = obj[1];
+                var type = obj[2];
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
+                return(
+                    <div class="store-items">
+                        <img src={url}></img>
+                        <ul id="myUL">
+                            <li><a class="store-text-name">{name}</a></li>
+                        </ul>
+                        <p class="store-text">Forma: {form}</p>
+                        <p class="store-text">Tipo: {type}</p>
+                    </div>
+                )})}
         </div>
+        
         
     );
 }
@@ -109,8 +99,10 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
+               
                <GetNames/>
             </div>
+        
         );
     }
 }

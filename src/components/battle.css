@@ -23,21 +23,14 @@
     
 }
 
-.big-container {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-}
 
 .screen-background{
-    margin-top: 70px;
     padding: 70px;
-    height: 400px;
-    width: 800px;
+    height: 600px;
+    width: 950px;
     position: absolute;
     right: 25%;
-
+    background-color: #455ca3;
 }
 
 .bot-pokemon {
@@ -52,7 +45,7 @@
     position: absolute;
     width: 308px;
     height: 192px;
-    top: 55%;
+    top: 57%;
     left: 30%;
 }
 

@@ -18,14 +18,12 @@ export default class BattlePage extends Component {
         require('../components/battle.css')
         require('../components/header.css')
         return(
-            <div>
-            <Header/>
-                <div className="big-container">
-                    <div>
-                        <img className="screen-background" src={arena_10}></img>
-                        <img className="bot-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/normal/lugia.gif"></img>
-                        <img className="person-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif"></img>
-                    </div>
+            <div className="body">
+                <Header/>
+                <div>
+                    <img className="screen-background" src={arena_10}></img>
+                    <img className="bot-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/normal/lugia.gif"></img>
+                    <img className="person-pokemon" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif"></img>
                 </div>
             </div>
             
