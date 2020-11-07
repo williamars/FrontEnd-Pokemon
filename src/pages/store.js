@@ -15,91 +15,158 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function GetNames() {
-    const [totalReactPackages, setTotalReactPackages] = useState([]);
+class Moves {
+    constructor(fast_move, charged_move) {
+        this.fast_move = fast_move;
+        this.charged_move = charged_move;
+    }
+}
 
+class Stats {
+    constructor(base_attack, base_defense, base_stamina){
+        this.base_attack = base_attack;
+        this.base_defense = base_defense;
+        this.base_stamina = base_stamina;
+    }
+}
+
+class Pokemon {
+    constructor(name, form, stats, type, moves){
+        this.name = name;
+        this.form = form;
+        this.stats = stats;
+        this.type = type;
+        this.moves = moves;
+    }
+}
+
+function GetNames() {
+    var move_list = new Array();
+    var type_list = new Array();
+    const [totalReactPackages, setTotalReactPackages] = useState([]);
     useEffect(() => {
-        // GET request using fetch inside useEffect React hook
-        const options = {
+        // ===========================REQUEST====MOVIMENTOS================================
+        const moves = {
+            method: 'GET',
+            url: 'https://pokemon-go1.p.rapidapi.com/current_pokemon_moves.json',
+            headers: {
+              'x-rapidapi-key': '18d3c51f4amsh25ebe51d845cb1cp166adejsnb78afc094182',
+              'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
+            }
+        };
+
+        axios.request(moves).then(function (moves_response) {
+            const str2 = JSON.stringify(moves_response.data);
+            const obj2 = JSON.parse(str2);
+            for (var i=1; i < 394 ; i+=1) {
+                var fast_move = obj2[i].fast_moves[0];
+                var charged_move = obj2[i].charged_moves[0];
+                var move = new Moves(fast_move, charged_move);
+                move_list.push(move)
+            }
+
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+        const type = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
             headers: {
                 'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
                 'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
             }
-            };
-        
-            axios.request(options).then(function (response) {
-                console.log(response.data[2].pokemon_name);
-                console.log(response.data[2].pokemon_name);
-                //console.log(response.data.lenght());
+        };
+
+        axios.request(type).then(function (type_response) {
+            
+            const str1 = JSON.stringify(type_response.data);
+            const obj1 = JSON.parse(str1)
+            for (var i=1; i < 394 ; i+=1) {
+                var pokemon_type = obj1[i].type[0].toLowerCase()
+                type_list.push(pokemon_type);
+            }
+
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+
+        const options = {
+            method: 'GET',
+            url: 'https://pokemon-go1.p.rapidapi.com/pokemon_stats.json',
+            headers: {
+              'x-rapidapi-key': '18d3c51f4amsh25ebe51d845cb1cp166adejsnb78afc094182',
+              'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
+            }
+          };
+          
+          axios.request(options).then(function (response) {
                 const str = JSON.stringify(response.data);
                 const obj = JSON.parse(str)
-                const lenght = obj.length;
-                var count = Object.keys(obj).length;
-                //console.log(count);
-                // Primeiros 152 Pokemóns -> 1ª Geração!
-                
                 for (var i=1; i < 9 ; i+=1) {
-                    var randomNumber;
-                    var pokemon_form;
-                    var pokemon_name;
-                    var pokemon_type;
-                    randomNumber= getRandomIntInclusive(1, 396);
-                    pokemon_name = obj[randomNumber].pokemon_name.toLowerCase()
-                    pokemon_form = obj[randomNumber].form.toLowerCase()
-                    pokemon_type = obj[randomNumber].type[0].toLowerCase()
-                    var pokemon_list = new Array(pokemon_name, pokemon_form, pokemon_type);
-                    if (!(pokemon_name in totalReactPackages)) {
-                        setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon_list]);
-                        
-                    }
-                    //console.log(totalReactPackages)
-                    //setTheArray(oldArray => [...oldArray, (obj[i].name)
+                    var randomNumber= getRandomIntInclusive(1, 396);
+                    var atk;
+                    var dfs;
+                    var stm;
+                    var name;
+                    var form;
+                    var type;
+                    var moves;
+                    moves = move_list[randomNumber-1];
+                    type = type_list[randomNumber-1];
+                    atk = obj[randomNumber].base_attack;
+                    dfs = obj[randomNumber].base_defense;
+                    stm = obj[randomNumber].base_stamina;
+                    name = obj[randomNumber].pokemon_name.toLowerCase();
+                    form = obj[randomNumber].form.toLowerCase();
+                    // Criando um Stats:
+                    var stts = new Stats(atk, dfs, stm);
+                    // Criando um Pokemon:
+                    var pokemon = new Pokemon(name, form, stts, type, moves);
+                    setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon]);
                 }
-                totalReactPackages.map(obj => {
+                totalReactPackages.map(pokemon => {
                 })
-            }).catch(function (error) {
-                console.error(error);
-            });
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+          }).catch(function (error) {
+              console.error(error);
+          });
     }, []);
     require('../components/pokedex.css')
     return (
         <div class="big-container">
-                  {totalReactPackages.map(obj => {
-                    var btn = "btn"+obj[0];
-                    var name = obj[0];
-                    var form = obj[1];
-                    var type = obj[2];
-                    var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
-                    return(
-                        <div id={obj[0]}>
-                            <div class="store-items">
-                                <img src={url}></img>
-                                <a class="store-text-name">{name}</a>
-                                <a class="store-text">Forma: {form}</a> 
-                                <a class="store-text">Tipo: {type}</a> 
-                                <input type="button" id={btn} value="Escolher"></input>
-                                
-                            </div>
+            {totalReactPackages.map(pokemon => {
+                var name = pokemon.name;
+                var defense = pokemon.stats.base_defense;
+                var attack = pokemon.stats.base_attack;
+                var stamina = pokemon.stats.base_stamina;
+                var form = pokemon.form;
+                var type = pokemon.type;
+                var fast_move = pokemon.moves.fast_move;
+                var charged_move = pokemon.moves.charged_move;
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
+                return(
+                    <div>
+                        <div class="store-items">
+                            <img src={url}></img>
+                            <a class="store-text-name">{name}</a>
+                            <a class="store-text">Forma: {form}</a> 
+                            <a class="store-text">Ataque: {attack}</a> 
+                            <a class="store-text">Defesa: {defense}</a> 
+                            <a class="store-text">Tipo: {type}</a> 
+                            <a class="store-text">Energia: {stamina}</a>
+                            <a class="store-text">Movimento 1: {fast_move}</a>
+                            <a class="store-text">Movimento 2: {charged_move}</a>
+                            <button class="buy-button">Escolher</button>
+                            
                         </div>
-                        )
-                    
-                    }
-                    )
-                    }
-                
-             
+                    </div>
+                    )})}
         </div>
         
     );
 }
-
 export { GetNames};
-
-
-
 
 export default class PokedexPage extends Component {
     

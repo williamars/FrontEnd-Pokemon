@@ -63,3 +63,25 @@
 
 
 
+.little-container {
+    width: auto;
+    height: 30%;
+}
+
+.store-text {
+    font-size: 15px;
+    color: #702423;
+}
+
+.store-text-name {
+    font-size: 30px;
+    color: #702423;
+}
+
+.buy-button{
+    border: solid 1px black;
+    border-radius: 25px;
+    background-color: #fcc50f;
+    font-size: 25px;
+}
+
