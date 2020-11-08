@@ -30,7 +30,7 @@ function GetNames() {
     var type_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
     useEffect(() => {
-        // GET request using fetch inside useEffect React hook
+        // ===============================REQUEST====TIPOS==================================
         const type = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
@@ -46,15 +46,13 @@ function GetNames() {
             const obj1 = JSON.parse(str1)
             for (var i=1; i < 396 ; i+=1) {
                 var pokemon_type = obj1[i].type[0].toLowerCase()
-                console.log("TIPOOOO: " + pokemon_type)
                 type_list.push(pokemon_type);
             }
 
         }).catch(function (error) {
             console.error(error);
         });
-
-
+        // ===============================REQUEST====STATS====================================
         const options = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_stats.json',
@@ -63,9 +61,7 @@ function GetNames() {
               'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
             }
           };
-          
           axios.request(options).then(function (response) {
-                console.log("LISTAAAA: " + type_list)
                 const str = JSON.stringify(response.data);
                 const obj = JSON.parse(str)
                 for (var i=1; i < 396 ; i+=1) {
@@ -103,7 +99,7 @@ function GetNames() {
                 var stamina = pokemon.stats.base_stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
                 return(
                     <div>
                         <div class="store-items">

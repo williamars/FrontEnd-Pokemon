@@ -16,10 +16,18 @@ function getRandomIntInclusive(min, max) {
 }
 
 class Moves {
-    constructor(fast_move, charged_move) {
-        this.fast_move = fast_move;
-        this.charged_move = charged_move;
+    constructor() {
+        this.fast_move = "Quick Attack";
+        this.charged_move = "SpecialAttack";
     }
+
+    setFastMove(fast_move){
+        this.fast_move = fast_move;
+    }
+
+    setChargedMove(charged_move){
+        this.charged_move = charged_move;
+    } 
 }
 
 class Stats {
@@ -46,7 +54,7 @@ function GetNames() {
     const [totalReactPackages, setTotalReactPackages] = useState([]);
     useEffect(() => {
         // ===========================REQUEST====MOVIMENTOS================================
-        const moves = {
+        const moves_request = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/current_pokemon_moves.json',
             headers: {
@@ -55,20 +63,20 @@ function GetNames() {
             }
         };
 
-        axios.request(moves).then(function (moves_response) {
+        axios.request(moves_request).then(function (moves_response) {
             const str2 = JSON.stringify(moves_response.data);
             const obj2 = JSON.parse(str2);
             for (var i=1; i < 394 ; i+=1) {
-                var fast_move = obj2[i].fast_moves[0];
-                var charged_move = obj2[i].charged_moves[0];
-                var move = new Moves(fast_move, charged_move);
+                var move = new Moves();
+                move.setChargedMove(JSON.stringify(obj2[i].fast_moves[0]))
+                move.setChargedMove(JSON.stringify(obj2[i].charged_moves[0]))
                 move_list.push(move)
             }
 
         }).catch(function (error) {
             console.error(error);
         });
-
+        // ===============================REQUEST====TIPOS==================================
         const type = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
@@ -90,8 +98,7 @@ function GetNames() {
         }).catch(function (error) {
             console.error(error);
         });
-
-
+        // ===============================REQUEST====STATS====================================
         const options = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_stats.json',
@@ -105,7 +112,7 @@ function GetNames() {
                 const str = JSON.stringify(response.data);
                 const obj = JSON.parse(str)
                 for (var i=1; i < 9 ; i+=1) {
-                    var randomNumber= getRandomIntInclusive(1, 396);
+                    var randomNumber= getRandomIntInclusive(1, 394);
                     var atk;
                     var dfs;
                     var stm;
@@ -142,9 +149,9 @@ function GetNames() {
                 var stamina = pokemon.stats.base_stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var fast_move = pokemon.moves.fast_move;
-                var charged_move = pokemon.moves.charged_move;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif"
+                // var fast_move = pokemon.moves.fast_move;
+                // var charged_move = pokemon.moves.charged_move;
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
                 return(
                     <div>
                         <div class="store-items">
@@ -153,10 +160,10 @@ function GetNames() {
                             <a class="store-text">Forma: {form}</a> 
                             <a class="store-text">Ataque: {attack}</a> 
                             <a class="store-text">Defesa: {defense}</a> 
-                            <a class="store-text">Tipo: {type}</a> 
                             <a class="store-text">Energia: {stamina}</a>
-                            <a class="store-text">Movimento 1: {fast_move}</a>
-                            <a class="store-text">Movimento 2: {charged_move}</a>
+                            <a class="store-text">Tipo: {type}</a> 
+                            {/* <a class="store-text">Movimento 1: {fast_move}</a>
+                            <a class="store-text">Movimento 2: {charged_move}</a> */}
                             <button class="buy-button">Escolher</button>
                             
                         </div>
@@ -176,7 +183,9 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
-               <GetNames/>
+            <input type='text'></input>
+            <GetNames/>
+
             </div>
         );
     }
