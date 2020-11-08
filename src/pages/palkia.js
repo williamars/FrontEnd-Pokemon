@@ -6,10 +6,10 @@ import "../components/layout.css"
 import trainer_zero from "../images/trainer_zero.png"
 import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
-import arena_10 from "../images/arena_3.png"
+import arena_10 from "../images/arena_4.png"
 import Header from "../components/header"
 import axios from "axios";
-var b = "Charizard";
+var b = "Palkia";
 var botName = b;
 var botPokemonHP = 2000;
 var personPokemonName = "";
@@ -80,7 +80,7 @@ function specialAttack() {
     alert(printHP);
 }
 
-var i = 30;
+var i = 20;
 
 function GetStats() {
     var type_list = new Array();

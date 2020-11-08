@@ -1,0 +1,52 @@
+.img-card {
+    width: 300px;
+    height: 400px;
+}
+
+body {
+    background-color: #455ca3;
+    height: 1000px;
+}
+
+.big-card {
+    background-color: darkslategrey;
+    border: 6px solid #cfa211;
+    border-radius: 6px;
+    width: 300px;
+    height: 500px;
+}
+
+.button-img {
+    padding: 25px;
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+    color: gold;
+    margin-left: 70px;
+}
+
+.big-container {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: space-between;
+    width: 1000px;
+    margin-left: 20%;
+    margin-top: 100px;
+    
+}
+
+.store-items {
+    border: solid 6px #cfa211;
+    border-radius: 10px;
+    background-color:  #f5dfdc;
+    height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10%;
+    margin-bottom: 40px;
+    
+}

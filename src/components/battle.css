@@ -14,6 +14,43 @@
 
 }
 
+.buttons-box{
+    background-color: #455ca3;
+    height: 150px;
+    width: 750px;
+    top: 80%;
+    left: 30%;
+    position: absolute;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 300px);
+    justify-content: space-between;
+}
+
+.person-stats{
+    background-color: #1b2c2c;
+    border: 3px solid red;
+
+}
+
+.background{
+    background-color: #455ca3;
+    height: 800px;
+}
+
+.info-special {
+    text-align: center;
+    background-color: gold;
+    border: 3px solid red;
+    height: 100px;
+}
+
+.info {
+    text-align: center;
+    background-color: #ccd7e0;
+    border: 3px solid red;
+    height: 100px;
+}
 
 .little-container {
     height: 100px;
@@ -35,18 +72,18 @@
 
 .bot-pokemon {
     position: absolute;
-    width: 308px;
+    width: 200px;
     height: 192px;
-    top: 35%;
-    left: 52%;
+    top: 38%;
+    left: 56%;
 }
 
 .person-pokemon {
     position: absolute;
-    width: 308px;
+    width: 200px;
     height: 192px;
     top: 57%;
-    left: 30%;
+    left: 35%;
 }
 
 .box-pokemon {
@@ -60,8 +97,6 @@
 .little-pokemon {
     border: 1px solid black;
 }
-
-
 
 .little-container {
     width: auto;

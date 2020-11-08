@@ -6,6 +6,7 @@ import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
 import trainer_zero from "../images/trainer_zero.png"
 
+
 const Header = ({ siteTitle }) => (
   <header>
     
@@ -20,8 +21,8 @@ const Header = ({ siteTitle }) => (
         <Link to="/pokedex" className="header-button">Pokedex</Link>
         <a class="header-button">Amigos</a>
         <Link to="/store" className="header-button">Capturar</Link>
-        <a class="header-button">Meu Perfil</a>
-        <Link to="/battle" className="evento">Batalha</Link>
+        <Link to="/battle" className="header-button">Batalha</Link>
+        <Link to="/dungeon" className="evento">Evento</Link>
     </div>
  
   </header>

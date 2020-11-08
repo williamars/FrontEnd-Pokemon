@@ -149,6 +149,7 @@ function GetNames() {
                 var stamina = pokemon.stats.base_stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
+                var teste_name = name;
                 // var fast_move = pokemon.moves.fast_move;
                 // var charged_move = pokemon.moves.charged_move;
                 var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
@@ -167,10 +168,10 @@ function GetNames() {
                             <button class="buy-button">Escolher</button>
                             
                         </div>
+                        
                     </div>
                     )})}
         </div>
-        
     );
 }
 export { GetNames};

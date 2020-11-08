@@ -9,7 +9,7 @@ import menu_logo from "../images/menu_logo.png"
 import arena_10 from "../images/arena_3.png"
 import Header from "../components/header"
 import axios from "axios";
-var b = "Charizard";
+var b = "Dialga";
 var botName = b;
 var botPokemonHP = 2000;
 var personPokemonName = "";
@@ -80,7 +80,7 @@ function specialAttack() {
     alert(printHP);
 }
 
-var i = 30;
+var i = 20;
 
 function GetStats() {
     var type_list = new Array();
