@@ -9,6 +9,13 @@ import menu_logo from "../images/menu_logo.png"
 import arena_10 from "../images/arena_3.png"
 import Header from "../components/header"
 import axios from "axios";
+var personId = "5fa9806623ea65001714ae97";
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var i= getRandomIntInclusive(1, 394);
 var b = "Charizard";
 var botName = b;
 var botPokemonHP = 2000;
@@ -80,14 +87,34 @@ function specialAttack() {
     alert(printHP);
 }
 
-var i = 30;
-
 function GetStats() {
     var type_list = new Array();
     var move_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
     useEffect(() => {
-        // ===============================REQUEST====TIPOS==================================
+        const pokemon_battle = {
+            method: 'GET',
+            url: "http://backend-pokemon.herokuapp.com/users/"+personId
+          };
+          
+          axios.request(pokemon_battle).then(function (battle_response) {
+                const str3 = JSON.stringify(battle_response.data);
+                const obj3 = JSON.parse(str3)
+                var pokemonsList = obj3[0].pokemon_battle;
+                var pokemonsArray = new Array();
+                pokemonsList.forEach(function(pokemon) {
+                        pokemonsArray.push(pokemon)
+                        
+                });
+                var LEN = pokemonsArray.length;
+                var namePokemon = pokemonsList[LEN-1].pokemon
+                console.log(namePokemon)
+                setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemonsList[LEN-1]]);
+          }).catch(function (error) {
+              console.error(error);
+          });
+
+        // ==============================REQUEST====TIPOS==================================
         const type = {
             method: 'GET',
             url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
@@ -120,7 +147,8 @@ function GetStats() {
         axios.request(moverequest).then(function (moves_response) {
             const str2 = JSON.stringify(moves_response.data);
             const obj2 = JSON.parse(str2);
-            var fast_move = "Quick Attack"
+            for (var u=1, u<394; u+=1) {
+                var fast_move = "Quick Attack"
             if (fast_move === 'undefined') {
                 var fast_move = "Quick Attack"
             } else {
@@ -131,6 +159,8 @@ function GetStats() {
             personPokemonNormal = fast_move;
             personPokemonSpecial = charged_move;
             move_list.push(move)
+            }
+            
         }).catch(function (error) {
             console.error(error);
         });
@@ -163,12 +193,11 @@ function GetStats() {
                 form = obj[i].form.toLowerCase();
                 personPokemonAttack = atk;
                 personPokemonName = obj[i].pokemon_name;
-                
                 // Criando um Stats:
                 var stts = new Stats(atk, dfs, stm);
                 // Criando um Pokemon:
                 var pokemon = new Pokemon(name, form, stts, type, move_);
-                setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon]);
+                // setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon]);
                 totalReactPackages.map(pokemon => {
                 })
           }).catch(function (error) {
@@ -179,10 +208,10 @@ function GetStats() {
     return (
         <div class="big-container">
             {totalReactPackages.map(pokemon => {
-                var name = pokemon.name;
-                var defense = pokemon.stats.base_defense;
-                var attack = pokemon.stats.base_attack;
-                var stamina = pokemon.stats.base_stamina;
+                var name = pokemon.pokemon;
+                var defense = pokemon.defense;
+                var attack = pokemon.attack;
+                var stamina = pokemon.stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
                 var url = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/"+name.toString()+".gif"
@@ -196,7 +225,9 @@ function GetStats() {
                             <button onClick={specialAttack} className="info-special">Special Attack</button>
                         </div>
                     </div>
-                    )})}
+                    )
+                    
+                    })}
         </div>
         
     );

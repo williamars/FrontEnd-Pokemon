@@ -200,6 +200,3 @@ export default class PokedexPage extends Component {
         this.setState(handleState(this.state, event))
     }
 }
-
-
-

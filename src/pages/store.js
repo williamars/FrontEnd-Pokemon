@@ -9,6 +9,8 @@ import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
 import Header from "../components/header"
 
+var personId = "5fa9806623ea65001714ae97";
+
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -47,6 +49,16 @@ class Pokemon {
         this.moves = moves;
     }
 }
+
+function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
+    var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
+    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
+    .then(resp=> {
+        console.log(resp.status)
+        console.log(resp)
+    }).catch(erro => console.log(erro))
+}
+
 
 function GetNames() {
     var move_list = new Array();
@@ -111,7 +123,8 @@ function GetNames() {
           axios.request(options).then(function (response) {
                 const str = JSON.stringify(response.data);
                 const obj = JSON.parse(str)
-                for (var i=1; i < 9 ; i+=1) {
+                var randomNumber= getRandomIntInclusive(1, 394);
+                for (var k=0; k < 8; k+=1) {
                     var randomNumber= getRandomIntInclusive(1, 394);
                     var atk;
                     var dfs;
@@ -133,12 +146,16 @@ function GetNames() {
                     var pokemon = new Pokemon(name, form, stts, type, moves);
                     setTotalReactPackages(totalReactPackages => [...totalReactPackages,pokemon]);
                 }
+                
                 totalReactPackages.map(pokemon => {
                 })
           }).catch(function (error) {
               console.error(error);
           });
     }, []);
+
+    
+
     require('../components/pokedex.css')
     return (
         <div class="big-container">
@@ -149,7 +166,6 @@ function GetNames() {
                 var stamina = pokemon.stats.base_stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var teste_name = name;
                 // var fast_move = pokemon.moves.fast_move;
                 // var charged_move = pokemon.moves.charged_move;
                 var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
@@ -162,10 +178,8 @@ function GetNames() {
                             <a class="store-text">Ataque: {attack}</a> 
                             <a class="store-text">Defesa: {defense}</a> 
                             <a class="store-text">Energia: {stamina}</a>
-                            <a class="store-text">Tipo: {type}</a> 
-                            {/* <a class="store-text">Movimento 1: {fast_move}</a>
-                            <a class="store-text">Movimento 2: {charged_move}</a> */}
-                            <button class="buy-button">Escolher</button>
+                            <a class="store-text">Tipo: {type}</a>
+                            <Link to="/mypokemons" class="button" onClick={ () => addPokemon(name, type, form, attack, defense, stamina)}>Aceitar</Link>
                             
                         </div>
                         
@@ -175,7 +189,7 @@ function GetNames() {
     );
 }
 export { GetNames};
-
+export { addPokemon};
 export default class PokedexPage extends Component {
     
     render() {
@@ -184,7 +198,6 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
-            <input type='text'></input>
             <GetNames/>
 
             </div>

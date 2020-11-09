@@ -4,9 +4,8 @@ import {
   
   const initialState = {
     userData: {
-      username: '',
       id: '',
-      password: '',
+
     },
   };
   

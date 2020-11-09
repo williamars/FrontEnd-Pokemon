@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
     </div>
 
     <div class="header">
-        <a  class="header-button">Meus Pokémons</a>
+        <Link to="/mypokemons" className="header-button">Meus Pokémons</Link>
         <Link to="/pokedex" className="header-button">Pokedex</Link>
         <a class="header-button">Amigos</a>
         <Link to="/store" className="header-button">Capturar</Link>
