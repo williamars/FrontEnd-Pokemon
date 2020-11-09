@@ -9,7 +9,7 @@ import Login from "./login"
 import Cadastro from './cadastro'
 import BattlePage from './battle'
 import PokedexPage from './pokedex'
-import { BrowserRouter as Router, Route, Redirect } from '@reach/router'
+import {Router, Route, Redirect } from '@reach/router'
 
 // const IndexPage = () => (
 //   <Router>
@@ -33,11 +33,12 @@ import { BrowserRouter as Router, Route, Redirect } from '@reach/router'
 const IndexPage = () =>
 <Router>
 
-     <Route path='/cadastro' component={Cadastro}/>
+     {/* <Cadastro path='/cadastro' component={Cadastro}/> */}
+     <Cadastro path='/cadastro' />
      <Redirect from='*' to='/login'/>
-     <Route path='/battle' component={BattlePage}/>
-     <Route path='/pokedex' component={PokedexPage}/>
-  <Login />
+     <BattlePage path='/battle'/>
+     <PokedexPage path='/pokedex'/>
+  {/* <Login /> */}
   </Router>
 
 export default IndexPage
