@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from "gatsby"
 import "../components/layout.css"
 import { Redirect } from '@reach/router'
 //import {useDispatch} from 'react-redux';
@@ -39,7 +40,7 @@ export default class Login extends Component {
     render() {
         if(this.state.redirectToReferrer === true) {
             return(
-                    <Redirect noThrow to='/battle/'/>
+                    <Redirect to='/battle/'/>
             )
         }
         return(
@@ -57,6 +58,9 @@ export default class Login extends Component {
                         </li>
                         <li className='block'>
                             <button className='button' onClick={this.doLogin}>Login</button>
+                        </li>
+                        <li className='block'>
+                        <Link to="/cadastro/">Não tem conta? Cadastre-se</Link> <br/>
                         </li>
                     </ul>
                 </div>
