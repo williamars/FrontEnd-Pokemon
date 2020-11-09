@@ -147,7 +147,7 @@ function GetStats() {
         axios.request(moverequest).then(function (moves_response) {
             const str2 = JSON.stringify(moves_response.data);
             const obj2 = JSON.parse(str2);
-            for (var u=1, u<394; u+=1) {
+            for (var u=1; u<394; u+=1) {
                 var fast_move = "Quick Attack"
             if (fast_move === 'undefined') {
                 var fast_move = "Quick Attack"
