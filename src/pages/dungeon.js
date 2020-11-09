@@ -15,6 +15,9 @@ import giratina_poster from "../images/giratina.jpg"
 import reshiram_poster from "../images/reshiram.jpg"
 import zekrom_poster from "../images/zekrom.jpg"
 import kyurem_poster from "../images/kyurem.jpg"
+import arceus_poster from "../images/arceus.jpg"
+import latias_poster from "../images/latias.jpg"
+import latios_poster from "../images/latios.jpg"
 
 export default class BattlePage extends Component {
     
@@ -49,6 +52,19 @@ export default class BattlePage extends Component {
                     <div class="big-card">
                     <img class="img-card" src={reshiram_poster}></img>
                     <Link to="/reshram" class="button-img">Reshiram</Link>
+                    </div>
+
+                    <div class="big-card">
+                    <img class="img-card" src={latias_poster}></img>
+                    <Link to="/latias" class="button-img">Latias</Link>
+                    </div>
+                    <div class="big-card">
+                    <img class="img-card" src={arceus_poster}></img>
+                    <Link to="/arceus" class="button-img">Arceus</Link>
+                    </div>
+                    <div class="big-card">
+                    <img class="img-card" src={latios_poster}></img>
+                    <Link to="/latios" class="button-img">Latios</Link>
                     </div>
                 </div>
                 
