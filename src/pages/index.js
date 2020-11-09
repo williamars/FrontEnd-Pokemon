@@ -9,7 +9,7 @@ import Login from "./login"
 import Cadastro from './cadastro'
 import BattlePage from './battle'
 import PokedexPage from './pokedex'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from '@reach/router'
 
 // const IndexPage = () => (
 //   <Router>
