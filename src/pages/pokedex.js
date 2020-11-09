@@ -102,14 +102,19 @@ function GetNames(props) {
     var renderList = []
     return (
         <div class="big-container">
+            {/* Checa o filtro pra ver se vai renderizar o pokemon ou não */}
             {totalReactPackages.map(pokemon => {
                 var type = pokemon.type
-                props.types_filter.map(type_filter => {
-                    if (type === type_filter.type && type_filter.checked) {
-                        renderList.push(pokemon)
-
-                    }
-                })
+                var name = pokemon.name
+                if (props.search=='' || name.includes(props.search)){
+                    props.types_filter.map(type_filter => {
+                        if (type === type_filter.type && type_filter.checked) {
+                            renderList.push(pokemon)
+    
+                        }
+                    })
+                }
+                
             })}
             {renderList.map(pokemon => {
                 var name = pokemon.name;
@@ -148,7 +153,8 @@ export default class PokedexPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            types: [{type: 'grass', checked: true}, {type: 'fire', checked: true}, {type: 'water', checked: true}, {type: 'bug', checked: true}, {type: 'normal', checked: true}, {type: 'dark', checked: true}, {type: 'poison', checked: true}, {type: 'electric', checked: true}, {type: 'ice', checked: true}, {type: 'ground', checked: true}, {type: 'fairy', checked: true}, {type: 'steel', checked: true}, {type: 'fighting', checked: true}, {type: 'psychic', checked: true}, {type: 'rock', checked: true}, {type: 'ghost', checked: true}, {type: 'dragon', checked: true}, ]
+            types: [{type: 'grass', checked: true}, {type: 'fire', checked: true}, {type: 'water', checked: true}, {type: 'bug', checked: true}, {type: 'normal', checked: true}, {type: 'dark', checked: true}, {type: 'poison', checked: true}, {type: 'electric', checked: true}, {type: 'ice', checked: true}, {type: 'ground', checked: true}, {type: 'fairy', checked: true}, {type: 'steel', checked: true}, {type: 'fighting', checked: true}, {type: 'psychic', checked: true}, {type: 'rock', checked: true}, {type: 'ghost', checked: true}, {type: 'dragon', checked: true}, ],
+            search: '' 
         }   
         this.handleChange = this.handleChange.bind(this)
     }
@@ -162,39 +168,48 @@ export default class PokedexPage extends Component {
     return(
         <div className="body">
             <Header siteTitle="Pokedex"/>
-
-            <div class="dropdown is-hoverable">
-                <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" aria-expanded='false'>
-                        <span>Tipo</span>
-                        <span className='icon is-small'>
-                            <i className="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </button>
+            <div className='filter_bar'>
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button filter_item" aria-haspopup="true" aria-controls="dropdown-menu" aria-expanded='false'>
+                            <span>Tipo</span>
+                            <span className='icon is-small'>
+                                <i className="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        {this.state.types.map(obj => {
+                            var type = obj.type
+                            return(
+                                <label className='checkbox'>
+                                    <input type='checkbox' name={type} checked={this.state.types.find(obj => obj.type == type).checked} onChange={this.handleChange}/>
+                                    {type} 
+                                </label>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                    {this.state.types.map(obj => {
-                        var type = obj.type
-                        return(
-                            <label className='checkbox'>
-                                <input type='checkbox' name={type} checked={this.state.types.find(obj => obj.type == type).checked} onChange={this.handleChange}/>
-                                {type} 
-                            </label>
-                        )
-                    })}
+                <div className='control filter_item'>
+                    <input type='text' className='input' placeholder='Search' name='search' value={this.state.search} onChange={this.handleChange}/>
                 </div>
 
             </div>
 
 
-            <GetNames types_filter={this.state.types}/>
+            <GetNames types_filter={this.state.types} search={this.state.search}/>
         </div>
     )}
 
     handleChange(event) {
         var handleState = (state, event) => {
-        state.types.find(obj => obj.type == event.target.name).checked = event.target.checked
-        console.log(this.state.types)
+            if (event.target.name === 'search'){
+                state.search = event.target.value
+            }
+            else{
+                state.types.find(obj => obj.type == event.target.name).checked = event.target.checked
+            }
         return state
         }
         this.setState(handleState(this.state, event))
