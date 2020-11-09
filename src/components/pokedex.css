@@ -107,13 +107,3 @@
   background-color: aqua;
   margin-top: 3000px;
 }
-
-.filter_bar {
-  margin: 1rem 2rem;
-  display: flex;
-
-}
-
-.filter_item {
-  margin: 0 5px;
-}
