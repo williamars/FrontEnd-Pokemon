@@ -9,7 +9,7 @@ import menu_logo from "../images/menu_logo.png"
 import arena_10 from "../images/arena_4.png"
 import Header from "../components/header"
 import axios from "axios";
-var personId = "5fa9806623ea65001714ae97";
+var personId = "5fa9a53693fd49001730fbca";
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
