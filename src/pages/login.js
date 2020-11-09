@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from "gatsby"
 import "../components/layout.css"
-import { Redirect } from '@reach/router'
+import { Redirect } from 'react-router-dom'
 //import {useDispatch} from 'react-redux';
 export default class Login extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ export default class Login extends Component {
     render() {
         if(this.state.redirectToReferrer === true) {
             return(
-                    <Redirect to='/battle/'/>
+                    <Redirect to='/battle'/>
             )
         }
         return(

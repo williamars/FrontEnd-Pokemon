@@ -1,11 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./mystyles.scss"
+
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Login from "./login"
-import { BrowserRouter as Router, Redirect } from "react-router-dom"
+import Cadastro from './cadastro'
+import BattlePage from './battle'
+import PokedexPage from './pokedex'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 // const IndexPage = () => (
 //   <Router>
@@ -27,6 +31,13 @@ import { BrowserRouter as Router, Redirect } from "react-router-dom"
   
 // )
 const IndexPage = () =>
+<Router>
+
+     <Route path='/cadastro' component={Cadastro}/>
+     <Redirect from='*' to='/login'/>
+     <Route path='/battle' component={BattlePage}/>
+     <Route path='/pokedex' component={PokedexPage}/>
   <Login />
+  </Router>
 
 export default IndexPage
