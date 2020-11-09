@@ -6,7 +6,7 @@ import "../components/layout.css"
 import trainer_zero from "../images/trainer_zero.png"
 import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
-import arena_10 from "../images/arena_3.png"
+import arena_10 from "../images/arena_1.png"
 import Header from "../components/header"
 import axios from "axios";
 var personId = "5fa9806623ea65001714ae97";
@@ -60,16 +60,22 @@ class Pokemon {
     }
 }
 
-
+function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
+    var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
+    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
+    .then(resp=> {
+        console.log(resp.status)
+        console.log(resp)
+    }).catch(erro => console.log(erro))
+}
 
 function normalAttack() {
     botPokemonHP = botPokemonHP - personPokemonAttack
     var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + personPokemonNormal + "!")
+    alert(personPokemonName + " used " + "Normal Attack" + "!")
     if (botPokemonHP <= 0) {
         printHP = "You defeated " + botName + "!";
-        b = "Palkia";
-        botPokemonHP = 2000;
+        addPokemon("palkia", "Legendary", "Event", 300, 300, 500);
     }
     alert(printHP);
 }
@@ -78,12 +84,11 @@ function specialAttack() {
     var ant = botPokemonHP;
     botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
     var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + personPokemonSpecial + "!")
+    alert(personPokemonName + " used " + "Special Attack" + "!")
     if (botPokemonHP <= 0) {
-        printHP = "You defeated "+botName+"!";
-        b = "Palkia";
-        botPokemonHP = 2000;
-    } 
+        printHP = "You defeated " + botName + "!";
+        addPokemon("palkia", "Legendary", "Event", 300, 300, 500);
+    }
     alert(printHP);
 }
 
