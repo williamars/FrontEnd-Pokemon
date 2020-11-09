@@ -12,6 +12,9 @@ import axios from "axios";
 import dialga_poster from "../images/dialga.jpg"
 import palkia_poster from "../images/palkia.jpg"
 import giratina_poster from "../images/giratina.jpg"
+import reshiram_poster from "../images/reshiram.jpg"
+import zekrom_poster from "../images/zekrom.jpg"
+import kyurem_poster from "../images/kyurem.jpg"
 
 export default class BattlePage extends Component {
     
@@ -33,6 +36,19 @@ export default class BattlePage extends Component {
                     <div class="big-card">
                     <img class="img-card" src={palkia_poster}></img>
                     <Link to="/palkia" class="button-img">Palkia</Link>
+                    </div>
+
+                    <div class="big-card">
+                    <img class="img-card" src={zekrom_poster}></img>
+                    <Link to="/zekrom" class="button-img">Zekrom</Link>
+                    </div>
+                    <div class="big-card">
+                    <img class="img-card" src={kyurem_poster}></img>
+                    <Link to="/kyurem" class="button-img">Kyurem</Link>
+                    </div>
+                    <div class="big-card">
+                    <img class="img-card" src={reshiram_poster}></img>
+                    <Link to="/reshram" class="button-img">Reshiram</Link>
                     </div>
                 </div>
                 
