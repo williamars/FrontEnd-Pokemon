@@ -1,6 +1,8 @@
 import React, { Component, useState, useEffect } from "react"
 import { Link } from "gatsby"
 import "../components/layout.css"
+import "./mystyles.scss" 
+import '../components/dropdown.css'
 
 //Imagens
 import trainer_zero from "../images/trainer_zero.png"
@@ -8,6 +10,7 @@ import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
 import Header from "../components/header"
+import { types } from "node-sass"
 
 class Stats {
     constructor(base_attack, base_defense, base_stamina){
@@ -26,32 +29,69 @@ class Pokemon {
     }
 }
 
+function getTypes() {
+    var type_list = new Array();
+    const type = {
+        method: 'GET',
+        url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
+        headers: {
+            'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
+            'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
+        }
+    };
+
+    axios.request(type).then(function (type_response) {
+        
+        const str1 = JSON.stringify(type_response.data);
+        const obj1 = JSON.parse(str1)
+        for (var i=1; i < 396 ; i+=1) {
+            var pokemon_type = obj1[i].type[0].toLowerCase()
+            if(!type_list.includes(pokemon_type)) {
+                type_list.push(pokemon_type)
+            }
+        }
+        console.log(type_list)
+        return type_list
+
+    }).catch(function (error) {
+        console.error(error);
+    });
+    
+    console.log(type_list)
+    return type_list
+}
+
+
 function GetNames() {
     var type_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
     useEffect(() => {
         // ===============================REQUEST====TIPOS==================================
-        const type = {
-            method: 'GET',
-            url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
-            headers: {
-                'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
-                'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
-            }
-        };
+        // const type = {
+        //     method: 'GET',
+        //     url: 'https://pokemon-go1.p.rapidapi.com/pokemon_types.json',
+        //     headers: {
+        //         'x-rapidapi-key': '0aaae8382cmshc6c10a05f420d5ap1b1414jsn0d7e307e07ff',
+        //         'x-rapidapi-host': 'pokemon-go1.p.rapidapi.com'
+        //     }
+        // };
 
-        axios.request(type).then(function (type_response) {
+        // axios.request(type).then(function (type_response) {
             
-            const str1 = JSON.stringify(type_response.data);
-            const obj1 = JSON.parse(str1)
-            for (var i=1; i < 396 ; i+=1) {
-                var pokemon_type = obj1[i].type[0].toLowerCase()
-                type_list.push(pokemon_type);
-            }
+        //     const str1 = JSON.stringify(type_response.data);
+        //     const obj1 = JSON.parse(str1)
+        //     for (var i=1; i < 396 ; i+=1) {
+        //         var pokemon_type = obj1[i].type[0].toLowerCase()
+        //         type_list.push(pokemon_type);
+        //     }
 
-        }).catch(function (error) {
-            console.error(error);
-        });
+        // }).catch(function (error) {
+        //     console.error(error);
+        // });
+        type_list = getTypes()
+        console.log(type_list)
+        
+        
         // ===============================REQUEST====STATS====================================
         const options = {
             method: 'GET',
@@ -120,23 +160,102 @@ function GetNames() {
 }
 export { GetNames};
 
+class GetTypes extends Component {
+    constructor(props) {
+        super(props)
 
+        this.state = {
+            types: []
+        }
 
-
-export default class PokedexPage extends Component {
-    
-    render() {
-        require('../components/pokedex.css')
-        require('../components/header.css')
-        return(
-            <div className="body">
-            <Header siteTitle="Pokedex"/>
-               
-               <GetNames/>
-            </div>
-        
-        );
+        let type_list = []
+        type_list = getTypes()
+        console.log(type_list)
+        console.log(types)
+        this.setState = {types: type_list};
+        console.log(types)
     }
+    // useEffect(() => {
+    //     type_list=getTypes()
+    //     console.log(type_list[1])
+    //     for (var i=0; i<18; i+=1){
+    //         // setTotalReactPackages(totalReactPackages => [...totalReactPackages, type_list[i]])
+    //     }
+        
+    //     totalReactPackages.map(type => {})
+    //     console.log(totalReactPackages)
+    // })
+    render() {
+        return (
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                {/* {this.state.type_list.map(type => {
+                    return(
+                        <label className='checkbox'>
+                            <input type='checkbox'/>
+                            {type}
+                        </label>
+                    )
+                })} */}
+                {/* <p>tipo: {type_list[0]}</p> */}
+                <label className='checkbox'>
+                    <input type='checkbox'/>
+                    tipo1
+                </label>
+                <label className='checkbox'>
+                    <input type='checkbox'/>
+                    tipo2
+                </label>
+                
+            </div>
+            
+        )
+    }
+    
 }
+export { GetTypes}
+
+
+    
+export default class PokedexPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            types: {type: '', checked: false}
+        }   
+        // this.getTypes = this.getTypes.bind(this)
+    }
+
+
+    
+
+    render() {
+    require('../components/pokedex.css')
+    require('../components/header.css')
+    return(
+        <div className="body">
+            <Header siteTitle="Pokedex"/>
+
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" aria-expanded='false'>
+                        <span>Tipo</span>
+                        <span className='icon is-small'>
+                            <i className="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                {/* <div class="dropdown-menu" id="dropdown-menu" role="menu"> */}
+
+                        <GetTypes/>
+                    
+                {/* </div> */}
+            </div>
+
+
+            <GetNames/>
+        </div>
+    )}
+}
+
 
 
