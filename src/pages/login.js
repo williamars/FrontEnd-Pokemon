@@ -43,7 +43,7 @@ export default class Login extends Component {
     
     render() {
 
-        if(this.state.redirectToReferrer === true) {
+    if(this.state.redirectToReferrer === true) {
         var button_continue = <a className='button' href='/pokedex'>Login feito com sucesso, clique para continuar</a>
     }
     else{
@@ -69,6 +69,9 @@ export default class Login extends Component {
                         </li>
                         <li className='block'>
                             {button_continue}
+                        </li>
+                        <li>
+                            <a className='button' href='/cadastro'>Cadastro</a>
                         </li>
                     </ul>
                 </div>
