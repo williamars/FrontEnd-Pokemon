@@ -215,6 +215,7 @@ function GetStats() {
                 var form = pokemon.form;
                 var type = pokemon.type;
                 var url = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/"+name.toString()+".gif"
+                personPokemonName = name    
                 return(
                     <div class="background">
                         <div>

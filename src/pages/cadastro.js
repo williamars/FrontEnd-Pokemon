@@ -32,9 +32,11 @@ export default class Cadastro extends Component {
     
     render() {
         if(this.state.redirectToReferrer === true) {
-            return(
-                    <Redirect noThrow to='/'/>
-            )
+            var button_continue = <a className='button' href='/'>Cadastro feito com sucesso, clique para fazer login</a>
+        }
+        else{
+            var button_continue =<div></div>
+        
         }
 
         return(
@@ -45,13 +47,16 @@ export default class Cadastro extends Component {
                             <p className='is-size-3 has-text-weight-semibold has-text-primary'>Cadastro</p>
                         </li>
                         <li className='block'>
-                            <input className={`input has-background-info-light is-medium ${this.state.user.username.length ? '' : 'is-danger'}`} type='text' placeholder='Enter Username' name='username' value={this.state.user.username} onChange={this.handleChange} required/>
+                            <input type='text' placeholder='Enter Username' name='username' value={this.state.user.username} onChange={this.handleChange} required/>
                         </li>
                         <li className='block'>
-                            <input className={`input has-background-info-light is-medium ${this.state.user.password.length ? '' : 'is-danger'}`} type='password' name='password' placeholder='Enter Password' value={this.state.user.password} onChange={this.handleChange} required/>
+                            <input type='password' name='password' placeholder='Enter Password' value={this.state.user.password} onChange={this.handleChange} required/>
                         </li>
                         <li className='block'>
                             <button className='button' onClick={this.doCadastro}>Cadastre</button>
+                        </li>
+                        <li>
+                            {button_continue}
                         </li>
                     </ul>
                 </div>
