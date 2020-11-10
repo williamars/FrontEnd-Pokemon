@@ -75,7 +75,7 @@ function normalAttack() {
     alert(personPokemonName + " used " + "Normal Attack" + "!")
     if (botPokemonHP <= 0) {
         printHP = "You defeated " + botName + "!";
-        addPokemon("reshiram", "Legendary", "Event", 300, 300, 500);
+        addPokemon("Reshiram", "Legendary", "Event", 300, 300, 500);
     }
     alert(printHP);
 }
@@ -87,7 +87,7 @@ function specialAttack() {
     alert(personPokemonName + " used " + "Special Attack" + "!")
     if (botPokemonHP <= 0) {
         printHP = "You defeated " + botName + "!";
-        addPokemon("reshiram", "Legendary", "Event", 300, 300, 500);
+        addPokemon("Reshiram", "Legendary", "Event", 300, 300, 500);
     }
     alert(printHP);
 }

@@ -17,6 +17,22 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function gifFix(pokemon_name){
+    if (pokemon_name == 'farfetch’d'){
+        pokemon_name = 'farfetchd'
+    }
+    else if (pokemon_name == 'nidoran♀'){
+        pokemon_name = 'nidoran-f'
+    }
+    else if (pokemon_name == 'nidoran♂'){
+        pokemon_name = 'nidoran-m'
+    }
+    else if (pokemon_name == 'mr. mime'){
+        pokemon_name = 'mr-mime'
+    }
+    return pokemon_name
+}
+
 class Moves {
     constructor() {
         this.fast_move = "Quick Attack";
@@ -90,7 +106,7 @@ function GetNames() {
                 var stamina = pokemon.stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+gifFix(name.toString().toLowerCase())+".gif";
                 return(
                     <div>
                         <div class="store-items">

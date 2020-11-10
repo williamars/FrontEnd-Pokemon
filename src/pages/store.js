@@ -17,6 +17,22 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function gifFix(pokemon_name){
+    if (pokemon_name == 'farfetch’d'){
+        pokemon_name = 'farfetchd'
+    }
+    else if (pokemon_name == 'nidoran♀'){
+        pokemon_name = 'nidoran-f'
+    }
+    else if (pokemon_name == 'nidoran♂'){
+        pokemon_name = 'nidoran-m'
+    }
+    else if (pokemon_name == 'mr. mime'){
+        pokemon_name = 'mr-mime'
+    }
+    return pokemon_name
+}
+
 class Moves {
     constructor() {
         this.fast_move = "Quick Attack";
@@ -138,7 +154,7 @@ function GetNames() {
                     atk = obj[randomNumber].base_attack;
                     dfs = obj[randomNumber].base_defense;
                     stm = obj[randomNumber].base_stamina;
-                    name = obj[randomNumber].pokemon_name.toLowerCase();
+                    name = obj[randomNumber].pokemon_name;
                     form = obj[randomNumber].form.toLowerCase();
                     // Criando um Stats:
                     var stts = new Stats(atk, dfs, stm);
@@ -168,7 +184,7 @@ function GetNames() {
                 var type = pokemon.type;
                 // var fast_move = pokemon.moves.fast_move;
                 // var charged_move = pokemon.moves.charged_move;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+gifFix(name.toString().toLowerCase())+".gif";
                 return(
                     <div>
                         <div class="store-items">
