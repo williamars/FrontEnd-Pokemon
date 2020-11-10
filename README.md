@@ -1,6 +1,6 @@
 # Pokemonline
 
-Este repositório contém o código do projeto 2 de TecWeb, que foi desenvolvido utilizando o framework [GatsbyJS](https://www.gatsbyjs.org/)(utiliza React). O site está hospedado no [Netlify](https://www.netlify.com/) e pode ser acessado por: https://inspermileage.netlify.com/
+Este repositório contém o código do projeto 2 de TecWeb, que foi desenvolvido utilizando o framework [GatsbyJS](https://www.gatsbyjs.org/)(utiliza React). O site está hospedado no [Netlify](https://www.netlify.com/) e pode ser acessado por: https://pokemonline.netlify.app/
 
 O grupo utilizou o Gatsby pelo fato dele utilizar React e o Graphql(banco de dados interno do site), o que facilitaria a persistência de dados, além de facilitar na hospedagem no servidor [Netlify](https://www.netlify.com/), porém não foi possível realizar a persistência de dados. Dessa forma o site está linkado com nosso [BackEnd](https://github.com/MarceloCMiguel/Backend-Pokemon), realizando os requests de login e cadastro, porém dentro do site os pokemons são adicionados sempre para o mesmo id.
 
