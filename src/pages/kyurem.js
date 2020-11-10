@@ -6,7 +6,7 @@ import "../components/layout.css"
 import trainer_zero from "../images/trainer_zero.png"
 import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
-import arena_10 from "../images/arena_1.png"
+import arena_10 from "../images/arena_2.png"
 import Header from "../components/header"
 import axios from "axios";
 var personId = "5fa9a53693fd49001730fbca";
@@ -16,7 +16,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 var i= getRandomIntInclusive(1, 394);
-var b = "Charizard";
+var b = "Kyurem";
 var botName = b;
 var botPokemonHP = 2000;
 var personPokemonName = "";
@@ -75,7 +75,7 @@ function normalAttack() {
     alert(personPokemonName + " used " + "Normal Attack" + "!")
     if (botPokemonHP <= 0) {
         printHP = "You defeated " + botName + "!";
-        addPokemon("charizard", "Legendary", "Event", 300, 300, 500);
+        addPokemon("kyurem", "Legendary", "Event", 300, 300, 500);
     }
     alert(printHP);
 }
@@ -87,7 +87,7 @@ function specialAttack() {
     alert(personPokemonName + " used " + "Special Attack" + "!")
     if (botPokemonHP <= 0) {
         printHP = "You defeated " + botName + "!";
-        addPokemon("charizard", "Legendary", "Event", 300, 300, 500);
+        addPokemon("kyurem", "Legendary", "Event", 300, 300, 500);
     }
     alert(printHP);
 }
