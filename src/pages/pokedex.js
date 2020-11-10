@@ -28,6 +28,21 @@ class Pokemon {
     }
 }
 
+function gifFix(pokemon_name){
+    if (pokemon_name == 'farfetch’d'){
+        pokemon_name = 'farfetchd'
+    }
+    else if (pokemon_name == 'nidoran♀'){
+        pokemon_name = 'nidoran-f'
+    }
+    else if (pokemon_name == 'nidoran♂'){
+        pokemon_name = 'nidoran-m'
+    }
+    else if (pokemon_name == 'mr. mime'){
+        pokemon_name = 'mr-mime'
+    }
+    return pokemon_name
+}
 
 function GetNames(props) {
     var type_list = new Array();
@@ -123,7 +138,7 @@ function GetNames(props) {
                 var stamina = pokemon.stats.base_stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+name.toString()+".gif";
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+gifFix(name.toString())+".gif";
 
                 return (
                     <div>
