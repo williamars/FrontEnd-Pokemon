@@ -69,7 +69,7 @@ Para testar o deploy, rode o código na pasta do projeto:
  ```bash
   $ gatsby build
   ```
-Caso o corrido não mostre erro, é possível dar um push na master e o deploy será feito automaticamente
+Caso o codigo não mostre erro, é possível dar um push na master e o deploy será feito automaticamente
 
 
 ## Licença
