@@ -63,6 +63,14 @@ Para executar o projeto, você precisa ter instalado em sua máquina: NodeJS, Ya
 - Com o comando `gatsby develop` o framework inicia o servidor de desenvolvimento com _hot-reload_
 - O site pode ser acessado em `localhost:8000`
 
+### Deploy
+
+Para testar o deploy, rode o código na pasta do projeto:
+ ```bash
+  $ gatsby build
+  ```
+Caso o corrido não mostre erro, é possível dar um push na master e o deploy será feito automaticamente
+
 
 ## Licença
 
