@@ -59,7 +59,7 @@ Para executar o projeto, você precisa ter instalado em sua máquina: NodeJS, Ya
 
 ### Instalação e execução
 
-- Na pasta do projeto, execute o comando `$ yarn install`, ele instalará todas as dependências do projeto descritas no `package.json`.
+- Na pasta do projeto, execute o comando `$ yarn install` ou `$ npm install`, ele instalará todas as dependências do projeto descritas no `package.json`.
 - Com o comando `gatsby develop` o framework inicia o servidor de desenvolvimento com _hot-reload_
 - O site pode ser acessado em `localhost:8000`
 
