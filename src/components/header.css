@@ -1,53 +1,53 @@
 .big-header {
-    background-color: #702423;
-    height: 10%;
-    justify-content: space-between;
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    text-align: center;
-    padding-top: 1%
+  background-color: #702423;
+  height: 10%;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  text-align: center;
+  padding-top: 1%;
 }
 
 .trainer-photo {
-    border-radius: 50px;
-    height: 75px;  
+  border-radius: 50px;
+  height: 75px;
 }
 
-.menu{
-    border-radius: 50px;
-    height: 50px; 
+.menu {
+  border-radius: 50px;
+  height: 50px;
 }
 
 .logo-photo {
-    margin-top: 20px;
-    height: 75px;
-    width: 400px;
+  margin-top: 20px;
+  height: 75px;
+  width: 400px;
 }
 
 .header {
-    margin-left: 12.5%;
-    width: 75%;
-    background-color: #c93634;
-    display: grid;
-    grid-template-columns: repeat(6, 150px);
-    justify-content: space-between;
-    padding: 10px;
+  margin-left: 12.5%;
+  width: 75%;
+  background-color: #c93634;
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .header-button {
-    background-color: #0fb5fc;
-    border-radius: 50px;
-    border: solid 3px black;
-    width: 150px;
-    height: 30px;
-    text-align: center;
+  background-color: #0fb5fc;
+  border-radius: 50px;
+  border: solid 3px black;
+  width: 150px;
+  height: 30px;
+  text-align: center;
 }
 
 .evento {
-    background-color: #fcc50f;
-    border-radius: 50px;
-    border: solid 3px black;
-    width: 150px;
-    height: 30px;
-    text-align: center;
+  background-color: #fcc50f;
+  border-radius: 50px;
+  border: solid 3px black;
+  width: 150px;
+  height: 30px;
+  text-align: center;
 }
