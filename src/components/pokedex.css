@@ -1,58 +1,55 @@
 .body {
-    background-color: #455ca3;
+  background-color: #455ca3;
 }
 
 .big-container {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: repeat(4, 200px);
-    justify-content: space-between;
-    width: 30%;
-    margin-left: 25%;
-    margin-top: 30px;
-    
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(4, 200px);
+  justify-content: space-between;
+  width: 30%;
+  margin-left: 25%;
+  margin-top: 30px;
 }
 
 .store-items {
-    border: solid 6px #cfa211;
-    border-radius: 10px;
-    background-color:  #f5dfdc;
-    height: 400px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10%;
-    margin-bottom: 40px;
-    
+  border: solid 6px #cfa211;
+  border-radius: 10px;
+  background-color: #f5dfdc;
+  height: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10%;
+  margin-bottom: 40px;
 }
 
-
 .little-container {
-    width: auto;
-    height: 30%;
+  width: auto;
+  height: 30%;
 }
 
 .store-text {
-    font-size: 15px;
-    color: #702423;
+  font-size: 15px;
+  color: #702423;
 }
 
 .store-text-name {
-    font-size: 30px;
-    color: #702423;
+  font-size: 30px;
+  color: #702423;
 }
 
-.buy-button{
-    border: solid 1px black;
-    border-radius: 25px;
-    background-color: #fcc50f;
-    font-size: 25px;
+.buy-button {
+  border: solid 1px black;
+  border-radius: 25px;
+  background-color: #fcc50f;
+  font-size: 25px;
 }
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -60,7 +57,8 @@
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #3e8e41;
 }
 
@@ -74,7 +72,9 @@
   border-bottom: 1px solid #ddd;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
+#myInput:focus {
+  outline: 3px solid #ddd;
+}
 
 .dropdown {
   position: relative;
@@ -98,10 +98,13 @@
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
-
+.show {
+  display: block;
+}
 
 .teste {
   background-color: aqua;
@@ -109,10 +112,21 @@
 }
 
 .filter_bar {
-  display: flex; 
+  display: flex;
   margin: 1rem 15rem;
 }
 
 .filter_item {
   margin: 0 5px;
+}
+
+.changeSenha {
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #702423;
+  color: white;
 }

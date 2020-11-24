@@ -18,9 +18,6 @@ const Header = ({ siteTitle }) => (
       <a>
         <img className="menu" src={menu_logo} />
       </a>
-      <a href="../changePassword">
-        <p>mudar senha</p>
-      </a>
     </div>
 
     <div class="header">
