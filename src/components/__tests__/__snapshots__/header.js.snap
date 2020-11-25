@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Header Renderizando Corretamente 1`] = `
+<header>
+  <div
+    className="big-header"
+  >
+    <a>
+      <img
+        className="trainer-photo"
+        src="test-file-stub"
+      />
+    </a>
+    <a>
+      <img
+        className="logo-photo"
+        src="test-file-stub"
+      />
+    </a>
+    <a>
+      <img
+        className="menu"
+        src="test-file-stub"
+      />
+    </a>
+  </div>
+  <div
+    className="header"
+  >
+    <a
+      className="header-button"
+      href="/mypokemons"
+    >
+      Meus Pokémons
+    </a>
+    <a
+      className="header-button"
+      href="/pokedex"
+    >
+      Pokedex
+    </a>
+    <a
+      className="header-button"
+    >
+      Amigos
+    </a>
+    <a
+      className="header-button"
+      href="/store"
+    >
+      Capturar
+    </a>
+    <a
+      className="header-button"
+      href="/battle"
+    >
+      Batalha
+    </a>
+    <a
+      className="evento"
+      href="/dungeon"
+    >
+      Evento
+    </a>
+  </div>
+</header>
+`;
