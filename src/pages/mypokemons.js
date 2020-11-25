@@ -7,9 +7,9 @@ import trainer_zero from "../images/trainer_zero.png"
 import logo from "../images/logo.png"
 import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
-import Header from "../components/header"
+import Header from "../components/header" 
 
-var personId = "5fa9a53693fd49001730fbca";
+var personId = "5fbeb487c1566439bac0c718";
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -68,11 +68,23 @@ class Pokemon {
 
 function choosePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
     var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
-    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon-battle/'+personId, body)
+    axios.post('http://localhost:3000/users/pokemon-battle/'+personId, body)
     .then(resp=> {
         console.log(resp.status)
         console.log(resp)
     }).catch(erro => console.log(erro))
+
+}
+
+function deletePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
+    var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
+    console.log("body", body)
+    axios.put("http://localhost:3000/users/pokemon/"+personId, body)
+    .then(resp => {
+        console.log("resposta", resp.data)
+        
+    }).catch(erro => console.log(erro))
+    
 }
 
 function GetNames() {
@@ -82,7 +94,7 @@ function GetNames() {
     useEffect(() => {
         const options = {
             method: 'GET',
-            url: "http://backend-pokemon.herokuapp.com/users/"+personId
+            url: "http://localhost:3000/users/"+personId
           };
           
           axios.request(options).then(function (response) {
@@ -118,6 +130,7 @@ function GetNames() {
                             <a class="store-text">Energia: {stamina}</a>
                             <a class="store-text">Tipo: {type}</a>
                             <button class="button" onClick={ () => choosePokemon(name, type, form, attack, defense, stamina)}>Escolher</button>  
+                            <button class="button" onClick={ () => {deletePokemon(name, type, form, attack, defense, stamina) ; window.location.reload(false)}}>Soltar</button>  
                         </div>
                         
                     </div>
