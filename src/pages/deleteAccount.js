@@ -15,7 +15,6 @@ function GetNames(props) {
   const [idPessoaDelete, setidPessoaDelete] = useState("")
 
   useEffect(() => {
-    console.log(personId)
     const options = {
       method: "GET",
       url: "http://backend-pokemon.herokuapp.com/users/" + personId,
@@ -69,7 +68,6 @@ function GetNames(props) {
         .post("https://backend-pokemon.herokuapp.com/users/login", usuario)
         .then(resp => {
           if (Math.floor(resp.status / 100) === 2) {
-            console.log(resp.data)
             setidPessoaDelete(resp.data)
           }
         })
@@ -84,9 +82,10 @@ function GetNames(props) {
   return (
     <div className="container">
       <div className="senha">
-        <h1 className="title-senha">Deletar a Conta</h1>
+        <h1 className="title-senha">Excluir a Conta</h1>
         <label className="title-menor">username</label>
         <input
+          data-testid="username-field"
           id="senha"
           value={usuario.username}
           name="senha"
@@ -94,6 +93,7 @@ function GetNames(props) {
         />
         <label className="title-menor">senha</label>
         <input
+          data-testid="password-field"
           className="last"
           id="newSenha"
           type="password"
@@ -104,7 +104,7 @@ function GetNames(props) {
         {deleted ? (
           <div>
             <p className="title-menor">
-              Deletado. Redirecionando à página inicial...
+              Deletado. Redirecionando à página inicial
             </p>
             <meta http-equiv="refresh" content="2; URL='/'" />
           </div>
@@ -113,7 +113,7 @@ function GetNames(props) {
             deletar
           </button>
         )}
-        {canConfirm && <p className="title-menor">Carregando...</p>}
+        {canConfirm && <p className="title-menor">Carregando</p>}
       </div>
     </div>
   )
@@ -121,12 +121,17 @@ function GetNames(props) {
 export { GetNames }
 
 export default function deleteAccount(props) {
+  var id = ""
+  if (props.location != undefined) {
+    id = props.location.state.idUser
+  }
+
   require("../components/pokedex.css")
   require("../components/header.css")
   return (
     <div className="body">
       <Header />
-      <GetNames idUser={props.location.state.idUser} />
+      <GetNames idUser={id} />
     </div>
   )
 }

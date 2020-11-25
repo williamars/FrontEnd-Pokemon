@@ -20,14 +20,14 @@ const Header = ({ siteTitle }) => (
       </a>
     </div>
 
-    <div class="header">
+    <div className="header">
       <Link to="/mypokemons" className="header-button">
         Meus Pokémons
       </Link>
       <Link to="/pokedex" className="header-button">
         Pokedex
       </Link>
-      <a class="header-button">Amigos</a>
+      <a className="header-button">Amigos</a>
       <Link to="/store" className="header-button">
         Capturar
       </Link>
