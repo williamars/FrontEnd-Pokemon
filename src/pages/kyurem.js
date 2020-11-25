@@ -86,8 +86,22 @@ function specialAttack() {
     var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
     alert(personPokemonName + " used " + "Special Attack" + "!")
     if (botPokemonHP <= 0) {
-        printHP = "You defeated " + botName + "!";
-        addPokemon("kyurem", "Legendary", "Event", 300, 300, 500);
+        if(window.confirm('You defeated ' + botName + "!"+' Do you wish to Capture this Pokemon?')){
+
+            const result = Math.floor(Math.random()*2)
+            if(result == 0){
+                addPokemon("kyurem", "Legendary", "Event", 300, 300, 500);
+                printHP = "Pokemon Captured & Added to your List!"
+            }
+            else {
+                if(window.confirm("You missed! Do you want to try again?")){
+                    botPokemonHP = 0
+                }
+            }
+        }
+
+       
+        
     }
     alert(printHP);
 }
