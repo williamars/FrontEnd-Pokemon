@@ -9,7 +9,7 @@ import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
 import Header from "../components/header"
 
-var personId = "5fa9a53693fd49001730fbca";
+var personId = "5fbeb487c1566439bac0c718";
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -68,7 +68,7 @@ class Pokemon {
 
 function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
     var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
-    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
+    axios.post('http://localhost:3000/users/pokemon/'+personId, body)
     .then(resp=> {
         console.log(resp.status)
         console.log(resp)

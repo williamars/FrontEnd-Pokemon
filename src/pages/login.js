@@ -18,6 +18,26 @@ export default class Login extends Component {
     this.doLogin = this.doLogin.bind(this)
   }
 
+
+    doLogin() {
+        
+        // Fazer o código do login quando o back tiver pronto
+        console.log(this.state.user.username)
+        console.log(this.state.user.password)
+        axios.post('http://localhost:3000/users/login', this.state.user)
+        .then(resp=> {
+            console.log(resp.status)
+            if(Math.floor(resp.status/100) === 2) {
+                
+                console.log(resp.data)
+                this.setState((state) => {
+                return {
+                    // setUser(user, 'id');
+                    user: {username: ''},
+                    redirectToReferrer: true
+                }
+                })
+
   doLogin() {
     axios
       .post(
@@ -32,6 +52,7 @@ export default class Login extends Component {
               // setUser(user, 'id');
               user: { username: "" },
               redirectToReferrer: true,
+
             }
           })
         }

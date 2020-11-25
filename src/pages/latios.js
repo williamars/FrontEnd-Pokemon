@@ -21,6 +21,8 @@ var botName = b;
 var botPokemonHP = 2000;
 var personPokemonName = "";
 var personPokemonAttack = 0;
+var personPokemonHP = 0;
+var personPokemonHPcurr = 0;
 var personPokemonNormal = "";
 var personPokemonSpecial = "";
 
@@ -70,6 +72,10 @@ function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
 }
 
 function normalAttack() {
+
+    if (personPokemonHPcurr <= 0){
+        alert("You died already, try again later.")
+
     botPokemonHP = botPokemonHP - personPokemonAttack
     var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
     alert(personPokemonName + " used " + "Normal Attack" + "!")
@@ -87,20 +93,41 @@ function normalAttack() {
                 }
             }
         }
+
     }
-    alert(printHP);
+    else {
+        botPokemonHP = botPokemonHP - personPokemonAttack
+        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.2)) + 1
+        personPokemonHPcurr = personPokemonHPcurr - counterAttack
+        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+        alert(personPokemonName + " used " + "Normal Attack" + "!" + "\nLatios used Counter Attack!")
+
+        if (botPokemonHP <= 0) {
+            printHP = "You defeated " + botName + "!";
+            addPokemon("Latios", "Legendary", "Event", 300, 300, 500);
+        }
+        alert(printHP);
+        console.log("hp do mano",personPokemonHP)
+    }
+    
 }
 
 function specialAttack() {
-    var ant = botPokemonHP;
-    botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
-    var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + "Special Attack" + "!")
-    if (botPokemonHP <= 0) {
-        printHP = "You defeated " + botName + "!";
-        addPokemon("latios", "Legendary", "Event", 300, 300, 500);
+    if (personPokemonHPcurr <= 0){
+        alert("You died already, try again later.")
     }
-    alert(printHP);
+    else {
+        botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
+        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.3)) + 1
+        personPokemonHPcurr = personPokemonHPcurr - counterAttack
+        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+        alert(personPokemonName + " used " + "Special Attack" + "!" + "\nLatios used Special Counter Attack!")
+        if (botPokemonHP <= 0) {
+            printHP = "You defeated " + botName + "!";
+            addPokemon("Latios", "Legendary", "Event", 300, 300, 500);
+        }
+        alert(printHP);
+    }
 }
 
 function GetStats() {
@@ -204,7 +231,8 @@ function GetStats() {
                 move_ = move_list[i-1];
                 atk = obj[i].base_attack;
                 dfs = obj[i].base_defense;
-                stm = obj[i].base_stamina;
+                personPokemonHP = obj[i].base_stamina * 10;
+                personPokemonHPcurr = personPokemonHP
                 name = obj[i].pokemon_name.toLowerCase();
                 form = obj[i].form.toLowerCase();
                 personPokemonAttack = atk;

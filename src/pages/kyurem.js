@@ -9,7 +9,7 @@ import menu_logo from "../images/menu_logo.png"
 import arena_10 from "../images/arena_2.png"
 import Header from "../components/header"
 import axios from "axios";
-var personId = "5fa9a53693fd49001730fbca";
+var personId = "5fbeb487c1566439bac0c718";
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -21,6 +21,8 @@ var botName = b;
 var botPokemonHP = 2000;
 var personPokemonName = "";
 var personPokemonAttack = 0;
+var personPokemonHP = 0;
+var personPokemonHPcurr = 0;
 var personPokemonNormal = "";
 var personPokemonSpecial = "";
 
@@ -62,7 +64,7 @@ class Pokemon {
 
 function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
     var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
-    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
+    axios.post('http://localhost:3000/users/pokemon/'+personId, body)
     .then(resp=> {
         console.log(resp.status)
         console.log(resp)
@@ -70,17 +72,43 @@ function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
 }
 
 function normalAttack() {
-    botPokemonHP = botPokemonHP - personPokemonAttack
-    var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + "Normal Attack" + "!")
-    if (botPokemonHP <= 0) {
-        printHP = "You defeated " + botName + "!";
-        addPokemon("kyurem", "Legendary", "Event", 300, 300, 500);
+    if (personPokemonHPcurr <= 0){
+        alert("You died already, try again later.")
     }
-    alert(printHP);
+    else {
+        botPokemonHP = botPokemonHP - personPokemonAttack
+        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.2)) + 1
+        personPokemonHPcurr = personPokemonHPcurr - counterAttack
+        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+        alert(personPokemonName + " used " + "Normal Attack" + "!" + "\nKyurem used Counter Attack!")
+
+        if (botPokemonHP <= 0) {
+            printHP = "You defeated " + botName + "!";
+            addPokemon("Kyurem", "Legendary", "Event", 300, 300, 500);
+        }
+        alert(printHP);
+        console.log("hp do mano",personPokemonHP)
+    }
+    
 }
 
 function specialAttack() {
+
+    if (personPokemonHPcurr <= 0){
+        alert("You died already, try again later.")
+    }
+    else {
+        botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
+        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.3)) + 1
+        personPokemonHPcurr = personPokemonHPcurr - counterAttack
+        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+        alert(personPokemonName + " used " + "Special Attack" + "!" + "\nKyurem used Special Counter Attack!")
+        if (botPokemonHP <= 0) {
+            printHP = "You defeated " + botName + "!";
+            addPokemon("Kyurem", "Legendary", "Event", 300, 300, 500);
+        }
+        alert(printHP);
+
     var ant = botPokemonHP;
     botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
     var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
@@ -101,11 +129,9 @@ function specialAttack() {
         }
 
        
-        
-    }
-    alert(printHP);
-}
 
+    }
+}
 function GetStats() {
     var type_list = new Array();
     var move_list = new Array();
@@ -113,7 +139,7 @@ function GetStats() {
     useEffect(() => {
         const pokemon_battle = {
             method: 'GET',
-            url: "http://backend-pokemon.herokuapp.com/users/"+personId
+            url: "http://localhost:3000/users/"+personId
           };
           
           axios.request(pokemon_battle).then(function (battle_response) {
@@ -207,7 +233,8 @@ function GetStats() {
                 move_ = move_list[i-1];
                 atk = obj[i].base_attack;
                 dfs = obj[i].base_defense;
-                stm = obj[i].base_stamina;
+                personPokemonHP = obj[i].base_stamina * 10;
+                personPokemonHPcurr = personPokemonHP
                 name = obj[i].pokemon_name.toLowerCase();
                 form = obj[i].form.toLowerCase();
                 personPokemonAttack = atk;

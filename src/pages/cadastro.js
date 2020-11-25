@@ -14,7 +14,7 @@ export default class Cadastro extends Component {
     }
 
     doCadastro() {
-        axios.post('https://backend-pokemon.herokuapp.com/users', this.state.user)
+        axios.post('http://localhost:3000/users', this.state.user)
         .then(resp=> {
             console.log(resp.status)
             if(Math.floor(resp.status/100) === 2) {
