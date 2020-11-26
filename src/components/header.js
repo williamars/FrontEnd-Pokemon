@@ -23,6 +23,7 @@ const Header = ({ siteTitle }) => (
         <Link to="/store" className="header-button">Capturar</Link>
         <Link to="/battle" className="header-button">Batalha</Link>
         <Link to="/dungeon" className="evento">Evento</Link>
+        <Link to="/moves" className="header-button">Golpes</Link>
     </div>
  
   </header>
