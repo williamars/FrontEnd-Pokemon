@@ -20,6 +20,7 @@ const Header = ({ siteTitle }) => (
       </a>
     </div>
 
+
     <div className="header">
       <Link to="/mypokemons" className="header-button">
         Meus Pokémons
@@ -36,6 +37,9 @@ const Header = ({ siteTitle }) => (
       </Link>
       <Link to="/dungeon" className="evento">
         Evento
+      </Link>
+      <Link to="/moves" className="header-button">
+        Golpes
       </Link>
     </div>
   </header>
