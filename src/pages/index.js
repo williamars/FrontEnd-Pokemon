@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import Login from "./login"
 import { BrowserRouter as Router, Redirect } from "react-router-dom"
 
+
 const IndexPage = () => (
   <Login/>
   
