@@ -61,7 +61,7 @@ export default class MovesPage extends Component {
         this.state = {
             types: [{type: 'grass', checked: true}, {type: 'fire', checked: true}, {type: 'water', checked: true}, {type: 'bug', checked: true}, {type: 'normal', checked: true}, {type: 'dark', checked: true}, {type: 'poison', checked: true}, {type: 'electric', checked: true}, {type: 'ice', checked: true}, {type: 'ground', checked: true}, {type: 'fairy', checked: true}, {type: 'steel', checked: true}, {type: 'fighting', checked: true}, {type: 'psychic', checked: true}, {type: 'rock', checked: true}, {type: 'ghost', checked: true}, {type: 'dragon', checked: true}, ],
             search: '',
-            lista: [{name: 'Test', type:'fire', power:40, energy_delta:1}]
+            lista: [{name: 'Test', type:'fire', power:40, energy_delta:1},{name: 'Debug', type:'bug', power:100, energy_delta:5}]
         }
         this.handleChange = this.handleChange.bind(this)
     }

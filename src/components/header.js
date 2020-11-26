@@ -38,7 +38,9 @@ const Header = ({ siteTitle }) => (
       <Link to="/dungeon" className="evento">
         Evento
       </Link>
-      <Link to="/moves" className="header-button">Golpes</Link>
+      <Link to="/moves" className="header-button">
+        Golpes
+      </Link>
     </div>
   </header>
 )
