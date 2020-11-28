@@ -219,7 +219,7 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
-            <div>
+            <div class="store-items">
             <button onClick={refreshPage}>reload!</button>
             </div>
             <GetNames/>
