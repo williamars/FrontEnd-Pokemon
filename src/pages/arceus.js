@@ -112,7 +112,7 @@ function normalAttack() {
         console.log("hp do mano",personPokemonHP)
     }
     
-}
+}}
 
 function specialAttack() {
     if (personPokemonHPcurr <= 0){

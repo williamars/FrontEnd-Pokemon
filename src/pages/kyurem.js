@@ -131,7 +131,8 @@ function specialAttack() {
        
 
     }
-}
+}}
+
 function GetStats() {
     var type_list = new Array();
     var move_list = new Array();
