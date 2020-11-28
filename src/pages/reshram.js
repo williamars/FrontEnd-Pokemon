@@ -103,33 +103,25 @@ function specialAttack() {
         personPokemonHPcurr = personPokemonHPcurr - counterAttack
         var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
         alert(personPokemonName + " used " + "Special Attack" + "!" + "\nReshiram used Special Counter Attack!")
+        
         if (botPokemonHP <= 0) {
-            printHP = "You defeated " + botName + "!";
-            addPokemon("Reshiram", "Legendary", "Event", 300, 300, 500);
-        }
-        alert(printHP);
+            if(window.confirm('You defeated ' + botName + "!"+' Do you wish to Capture this Pokemon?')){
 
-    var ant = botPokemonHP;
-    botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
-    var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + "Special Attack" + "!")
-    if (botPokemonHP <= 0) {
-        if(window.confirm('You defeated ' + botName + "!"+' Do you wish to Capture this Pokemon?')){
-
-            const result = Math.floor(Math.random()*2)
-            if(result == 0){
-                addPokemon("Reshiram", "Legendary", "Event", 300, 300, 500);
-                printHP = "Pokemon Captured & Added to your List!"
-            }
-            else {
-                if(window.confirm("You missed! Do you want to try again?")){
-                    botPokemonHP = 0
+                const result = Math.floor(Math.random()*2)
+                if(result == 0){
+                    addPokemon("Reshiram", "Legendary", "Event", 300, 300, 500);
+                    printHP = "Pokemon Captured & Added to your List!"
+                }
+                else {
+                    if(window.confirm("You missed! Do you want to try again?")){
+                        botPokemonHP = 0
+                    }
                 }
             }
-        }
 
-    }
-}}
+        }
+    }    
+}
 
 function GetStats() {
     var type_list = new Array();
@@ -267,8 +259,8 @@ function GetStats() {
                             <img class="person-pokemon" src={url}></img>
                         </div>
                         <div className="buttons-box">
-                            <button onClick={normalAttack} className="info">Normal Attack</button>
-                            <button onClick={specialAttack} className="info-special">Special Attack</button>
+                            <button data-testid="normal" onClick={normalAttack} className="info">Normal Attack</button>
+                            <button data-testid="especial" onClick={specialAttack} className="info-special">Special Attack</button>
                         </div>
                     </div>
                     )

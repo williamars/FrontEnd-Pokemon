@@ -25,6 +25,8 @@ var personPokemonHP = 0;
 var personPokemonHPcurr = 0;
 var personPokemonNormal = "";
 var personPokemonSpecial = "";
+// window.confirm = jest.fn(() => true)
+var confirm = window.confirm('You defeated ' + botName + "!"+' Do you wish to Capture this Pokemon?');
 
 function botPokemon(name_pok_bot){
     var botName = name_pok_bot;
@@ -77,25 +79,6 @@ function normalAttack() {
     if (personPokemonHPcurr <= 0){
         alert("You died already, try again later.")
 
-    botPokemonHP = botPokemonHP - personPokemonAttack
-    var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000"
-    alert(personPokemonName + " used " + "Normal Attack" + "!")
-    if (botPokemonHP <= 0) {
-        if(window.confirm('You defeated ' + botName + "!"+' Do you wish to Capture this Pokemon?')){
-
-            const result = Math.floor(Math.random()*2)
-            if(result == 0){
-                addPokemon("arceus", "Legendary", "Event", 600, 600, 500);
-                printHP = "Pokemon Captured & Added to your List!"
-            }
-            else {
-                if(window.confirm("You missed! Do you want to try again?")){
-                    botPokemonHP = 0
-                }
-            }
-        }
-        
-
     }
     else {
         botPokemonHP = botPokemonHP - personPokemonAttack
@@ -105,14 +88,25 @@ function normalAttack() {
         alert(personPokemonName + " used " + "Normal Attack" + "!" + "\nArceus used Counter Attack!")
 
         if (botPokemonHP <= 0) {
-            printHP = "You defeated " + botName + "!";
-            addPokemon("Arceus", "Legendary", "Event", 300, 300, 500);
+            if(confirm){
+
+                const result = Math.floor(Math.random()*2)
+                if(result == 0){
+                    addPokemon("arceus", "Legendary", "Event", 300, 300, 500);
+                    printHP = "Pokemon Captured & Added to your List!"
+                }
+                else {
+                    if(window.confirm("You missed! Do you want to try again?")){
+                        botPokemonHP = 0
+                    }
+                }
+            }
         }
         alert(printHP);
         console.log("hp do mano",personPokemonHP)
     }
     
-}}
+}
 
 function specialAttack() {
     if (personPokemonHPcurr <= 0){
@@ -125,8 +119,19 @@ function specialAttack() {
         var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
         alert(personPokemonName + " used " + "Special Attack" + "!" + "\nArceus used Special Counter Attack!")
         if (botPokemonHP <= 0) {
-            printHP = "You defeated " + botName + "!";
-            addPokemon("Arceus", "Legendary", "Event", 300, 300, 500);
+            if(confirm){
+
+                const result = Math.floor(Math.random()*2)
+                if(result == 0){
+                    addPokemon("arceus", "Legendary", "Event", 300, 300, 500);
+                    printHP = "Pokemon Captured & Added to your List!"
+                }
+                else {
+                    if(window.confirm("You missed! Do you want to try again?")){
+                        botPokemonHP = 0
+                    }
+                }
+            }
         }
         alert(printHP);
     }
@@ -268,8 +273,8 @@ function GetStats() {
                             <img class="person-pokemon" src={url}></img>
                         </div>
                         <div className="buttons-box">
-                            <button onClick={normalAttack} className="info">Normal Attack</button>
-                            <button onClick={specialAttack} className="info-special">Special Attack</button>
+                            <button data-testid="normal" onClick={normalAttack} className="info">Normal Attack</button>
+                            <button data-testid="especial" onClick={specialAttack} className="info-special">Special Attack</button>
                         </div>
                     </div>
                     )
