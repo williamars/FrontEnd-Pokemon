@@ -5,6 +5,7 @@ import { Redirect } from '@reach/router'
 import {setUserData} from '../register/actions'
 import {useDispatch} from 'react-redux';
 import {PokedexPage} from './pokedex'
+import { Link } from "gatsby"
 //import {useDispatch} from 'react-redux';
 export default class Login extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class Login extends Component {
         // Fazer o código do login quando o back tiver pronto
         console.log(this.state.user.username)
         console.log(this.state.user.password)
-        axios.post('https://backend-pokemon.herokuapp.com/users/login', this.state.user)
+        axios.post('http://localhost:3000/users/login', this.state.user)
         .then(resp=> {
             console.log(resp.status)
             if(Math.floor(resp.status/100) === 2) {
@@ -44,8 +45,15 @@ export default class Login extends Component {
     render() {
 
     if(this.state.redirectToReferrer === true) {
-        var button_continue = <a className='button' href='/pokedex'>Login feito com sucesso, clique para continuar</a>
-    }
+        var button_continue =         
+        <Link
+        to="/pokedex"
+        state={{
+          idUser: this.state.userId,
+        }}
+        >
+        Sucesso! Clique aqui para entrar.
+        </Link>}
     else{
         var button_continue =<div></div>
     
