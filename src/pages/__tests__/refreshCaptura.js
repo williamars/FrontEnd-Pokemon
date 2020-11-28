@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect"
 
 // Reseta o render do component após cada teste
 afterEach(cleanup)
-it("Quando deletar, deve aparecer o carregamento após o click", () => {
+it("quando aperta o reload chama a funcao", () => {
   const { getByTestId, getByText } = render(<PokedexPage />)
 
   // Clica no botão de dar refresh
