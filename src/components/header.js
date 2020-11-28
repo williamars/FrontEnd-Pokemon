@@ -41,6 +41,9 @@ const Header = ({ siteTitle }) => (
       <Link to="/moves" className="header-button">
         Golpes
       </Link>
+      <Link to="/profile" className="header-button">
+        Perfil
+      </Link>
     </div>
   </header>
 )
