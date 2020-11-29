@@ -1,5 +1,5 @@
 import React from "react"
-import MovesPage from "../chargedmoves"
+import ChargedMovesPage from "../chargedmoves"
 import { mount, configure } from "enzyme"
 import toJson from "enzyme-to-json"
 import Adapter from "enzyme-adapter-react-16"
