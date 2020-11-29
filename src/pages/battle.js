@@ -338,7 +338,7 @@ export default function battle(props) {
     if (props.state != undefined) {
         testando = props.state.test
     }
-    const test = true
+    const test = testando
 
     console.log("teste na renderização", test)
 
