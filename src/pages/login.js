@@ -23,7 +23,7 @@ export default class Login extends Component {
         // Fazer o código do login quando o back tiver pronto
         console.log(this.state.user.username)
         console.log(this.state.user.password)
-        axios.post('http://localhost:3000/users/login', this.state.user)
+        axios.post('https://backend-pokemon.herokuapp.com/users/login', this.state.user)
         .then(resp=> {
             console.log(resp.status)
             if(Math.floor(resp.status/100) === 2) {

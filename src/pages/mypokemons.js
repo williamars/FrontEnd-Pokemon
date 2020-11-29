@@ -69,7 +69,7 @@ class Pokemon {
 
 function choosePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
     var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
-    axios.post('http://localhost:3000/users/pokemon-battle/'+personId, body)
+    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon-battle/'+personId, body)
     .then(resp=> {
         console.log(resp.status)
         console.log(resp)
@@ -89,7 +89,7 @@ function GetNames(props) {
     useEffect(() => {
         const options = {
             method: 'GET',
-            url: "http://localhost:3000/users/"+personId
+            url: "https://backend-pokemon.herokuapp.com/users/"+personId
           };
           
           axios.request(options).then(function (response) {
@@ -108,7 +108,7 @@ function GetNames(props) {
         var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
         if(window.confirm("Tem certeza que quer soltar " + body.pokemon + "?")){
             setLoading(true)
-            axios.put("http://localhost:3000/users/pokemon/"+personId, body)
+            axios.put("https://backend-pokemon.herokuapp.com/users/pokemon/"+personId, body)
             .then(resp => {
                 console.log("resposta", resp.data)
                 

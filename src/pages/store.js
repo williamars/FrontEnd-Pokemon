@@ -68,7 +68,7 @@ class Pokemon {
 
 function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
     var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
-    axios.post('http://localhost:3000/users/pokemon/'+personId, body)
+    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
     .then(resp=> {
         console.log(resp.status)
         console.log(resp)
