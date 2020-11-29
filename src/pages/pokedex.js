@@ -249,13 +249,6 @@ export default class PokedexPage extends Component {
         </div>
 
         <GetNames types_filter={this.state.types} search={this.state.search} />
-        <Link
-          className="changeSenha"
-          to="/deleteAccount"
-          state={{ idUser: this.state.idUser }}
-        >
-          deletar conta
-        </Link>
       </div>
     )
   }
