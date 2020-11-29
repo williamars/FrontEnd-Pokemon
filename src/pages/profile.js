@@ -22,6 +22,7 @@ export default class ProfilePage extends Component {
                 <div class="profile-container">
                     <img class="profile-img" src={profile_img}></img>
                     <Link to="/login" class="exit-button" data-testid="exit-button">Sair</Link>
+                    <Link to="/deleteAccount" class="exit-button">Deletar conta</Link>
                 </div>
             </div>
         );
