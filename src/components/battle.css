@@ -15,14 +15,17 @@
 }
 
 .buttons-box{
+    margin: 20px auto;
     background-color: #455ca3;
     height: 150px;
-    width: 750px;
+    width: 700px;
     top: 80%;
     left: 30%;
     position: absolute;
     display: grid;
-    grid-gap: 40px;
+    grid-row: auto auto;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
     grid-template-columns: repeat(2, 300px);
     justify-content: space-between;
 }
@@ -45,6 +48,20 @@
     height: 100px;
 }
 
+.info-heal {
+    text-align: center;
+    background-color: aquamarine;
+    border: 3px solid red;
+    height: 100px;
+}
+
+.info-run {
+    text-align: center;
+    background-color: blueviolet;
+    border: 3px solid red;
+    height: 100px;
+}
+
 .info {
     text-align: center;
     background-color: #ccd7e0;
@@ -53,10 +70,12 @@
 }
 
 .little-container {
-    height: 100px;
-    width: 100px;
+    height: 300px;
+    width: 300px;
     text-align: center;
     justify-content: center;
+    background-color: black;
+    font-size: 100px;
     
 }
 
