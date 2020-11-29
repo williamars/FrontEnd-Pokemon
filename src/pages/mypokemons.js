@@ -9,6 +9,7 @@ import menu_logo from "../images/menu_logo.png"
 import axios from "axios";
 import Header from "../components/header" 
 
+// var personId = "5fa9a53693fd49001730fbca";
 var personId = "5fbeb487c1566439bac0c718";
 
 function getRandomIntInclusive(min, max) {
@@ -76,21 +77,15 @@ function choosePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
 
 }
 
-function deletePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
-    var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
-    console.log("body", body)
-    axios.put("http://localhost:3000/users/pokemon/"+personId, body)
-    .then(resp => {
-        console.log("resposta", resp.data)
-        
-    }).catch(erro => console.log(erro))
-    
-}
 
-function GetNames() {
+
+function GetNames(props) {
+    const { personId } = props
     var move_list = new Array();
     var type_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -108,6 +103,20 @@ function GetNames() {
               console.error(error);
           });
     }, []);
+
+    function deletePokemon(pname, ptype, pform, pattack, pdefense, pstamina) {
+        var body = {pokemon: pname, type: ptype, form:pform, attack: pattack, defense: pdefense, stamina: pstamina}
+        if(window.confirm("Tem certeza que quer soltar " + body.pokemon + "?")){
+            setLoading(true)
+            axios.put("http://localhost:3000/users/pokemon/"+personId, body)
+            .then(resp => {
+                console.log("resposta", resp.data)
+                
+            }).catch(erro => console.log(erro))
+            }
+            console.log("body", body)
+    }
+
     require('../components/pokedex.css')
     return (
         <div class="big-container">
@@ -130,9 +139,10 @@ function GetNames() {
                             <a class="store-text">Energia: {stamina}</a>
                             <a class="store-text">Tipo: {type}</a>
                             <button class="button" onClick={ () => choosePokemon(name, type, form, attack, defense, stamina)}>Escolher</button>  
-                            <button class="button" onClick={ () => {deletePokemon(name, type, form, attack, defense, stamina) ; window.location.reload(false)}}>Soltar</button>  
+                            <button data-testid="release-pokemon" class="button" onClick={ () => {deletePokemon(name, type, form, attack, defense, stamina) ; window.location.reload(false)}}>soltar</button>  
+                            {loading && <p className="title-menor">Bye!</p>}
                         </div>
-                        
+                     
                     </div>
                     )})}
         </div>
@@ -141,15 +151,29 @@ function GetNames() {
 export { GetNames};
 
 export default class PokedexPage extends Component {
-    
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false
+        }
+        this.deletePokemon = this.deletePokemon.bind(this)
+    }
+
+    deletePokemon() {
+        this.setState({loading: true})
+        console.log(this.state)
+    }
     render() {
+        const loading = this.state.loading
         require('../components/pokedex.css')
         require('../components/header.css')
         return(
             <div className="body">
             <Header/>
-            <GetNames/>
-
+            <button data-testid="release-pokemon" class="button" onClick={() => {this.deletePokemon()}}>soltar</button>
+            {loading && <p className="title-menor">Bye!</p>}
+            <GetNames personId={"5fbeb487c1566439bac0c718"}/>
+            
             </div>
         );
     }
