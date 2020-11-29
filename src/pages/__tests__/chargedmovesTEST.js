@@ -7,7 +7,7 @@ import Adapter from "enzyme-adapter-react-16"
 
 afterEach(cleanup)
 
-describe("charged moves test", () => {
+it("should check the list", () => {
     const props = {
         location: {
           state: {
@@ -17,11 +17,5 @@ describe("charged moves test", () => {
           },
         },
       }
-
-    });
-
     const app = mount(<MovesPage {...props} />)
-    
-    
-    it("should check the list", () => {
-     expect(toJson(app)).toMatchSnapshot() });
+    expect(toJson(app)).toMatchSnapshot() })
