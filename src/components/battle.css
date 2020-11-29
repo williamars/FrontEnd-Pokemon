@@ -19,7 +19,7 @@
     background-color: #455ca3;
     height: 150px;
     width: 700px;
-    top: 80%;
+    top: 90%;
     left: 30%;
     position: absolute;
     display: grid;
@@ -74,7 +74,7 @@
     width: 300px;
     text-align: center;
     justify-content: center;
-    background-color: black;
+    background-color: #455ca3;
     font-size: 100px;
     
 }
@@ -87,21 +87,22 @@
     position: absolute;
     right: 25%;
     background-color: #455ca3;
+    top: 35%;
 }
 
 .bot-pokemon {
     position: absolute;
     width: 200px;
     height: 192px;
-    top: 38%;
+    top: 52%;
     left: 56%;
 }
 
 .person-pokemon {
     position: absolute;
-    width: 200px;
-    height: 192px;
-    top: 57%;
+    width: 250px;
+    height: 242px;
+    top: 66%;
     left: 35%;
 }
 

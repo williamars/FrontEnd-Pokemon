@@ -18,7 +18,8 @@ function GetStats(teste) {
     var type_list = new Array();
     var move_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
-    var personId = "5fa9a53693fd49001730fbca";
+    // var personId = "5fa9a53693fd49001730fbca";
+    var personId = "5fbeb487c1566439bac0c718";
     var b = ["Charizard", "Venusaur", "Blastoise"];
     var [botPokemonHP, setbotPokemonHP] = useState(2000);
     var [personPokemonName, setPersonPokemonName] = useState("");
@@ -102,13 +103,14 @@ function GetStats(teste) {
                     setPersonPokemonHPcurr(0)
                 }
                 var printHP = b[i]+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
-                alert(personPokemonName + " used " + "Normal Attack" + "!" + "\n"+b[i]+" used Counter Attack!")
+                alert(personPokemonName + " used " + "Normal Attack" + "!" + "[-"+ personPokemonAttack +"]" + "\n"+b[i]+" used Counter Attack!" + "[-"+ counterAttack +"]")
 
-                if (botPokemonHP <= 0) {
+                if (botPokemonHP - personPokemonAttack <= 0) {
                     printHP = "You defeated " + b[i] + "!";
                     addPokemon(b[i], "Legendary", "Event", 300, 300, 500);
+                    setbotPokemonHP(0)
                 }
-                alert(printHP);
+                // alert(printHP);
             }
         }
         
@@ -130,24 +132,25 @@ function GetStats(teste) {
                     setPersonPokemonHPcurr(0)
                 }
                 var printHP = b[i]+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
-                alert(personPokemonName + " used " + "Special Attack" + "!" + "\n"+b[i]+" used Special Counter Attack!")
+                alert(personPokemonName + " used " + "Special Attack" + "!" + "[-"+ personPokemonAttack +"]" + "\n"+b[i]+" used Counter Attack!" + "[-"+ counterAttack +"]")
                 if (botPokemonHP <= 0) {
                     printHP = "You defeated " + b[i] + "!";
                     addPokemon(b[i], "Legendary", "Event", 300, 300, 500);
                 }
-                alert(printHP);
+                // alert(printHP);
             }
         }
     }
 
     function healPokemon() {
-        setYouHealed(true)
+        
         if (youRan) {
             alert("You already ran away!")
         } else if (youDead){
             alert("You can't use a potion ona dead body!")
         } else{
             if (personPotions > 0){
+                setYouHealed(true)
                 var heal = getRandomIntInclusive(300,420);
                 setPersonPokemonHPcurr(personPokemonHPcurr + heal)  
                 setPersonPotions(personPotions - 1)
@@ -173,7 +176,7 @@ function GetStats(teste) {
     useEffect(() => {
         const pokemon_battle = {
             method: 'GET',
-            url: "http://backend-pokemon.herokuapp.com/users/"+personId
+            url: "https://backend-pokemon.herokuapp.com/users/"+personId
           };
           
           axios.request(pokemon_battle).then(function (battle_response) {
@@ -270,8 +273,9 @@ function GetStats(teste) {
                 setPersonPokemonHP(obj[i].base_stamina * 12)
                 setPersonPokemonHPcurr(obj[i].base_stamina * 12)
                 name = obj[i].pokemon_name.toLowerCase();
+                console.log(name)
                 form = obj[i].form.toLowerCase();
-                setPersonPokemonAttack(atk);
+                setPersonPokemonAttack(atk+42);
                 setPersonPokemonName(obj[i].pokemon_name);
                 // Criando um Stats:
                 var stts = new Stats(atk, dfs, stm);
@@ -301,7 +305,7 @@ function GetStats(teste) {
                 var stamina = pokemon.stamina;
                 var form = pokemon.form;
                 var type = pokemon.type;
-                var url = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/"+name.toString()+".gif"
+                var url = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/"+name.toString().toLowerCase()+".gif"
                 personPokemonName = name    
                 return(
                     // <div className="little-container">
