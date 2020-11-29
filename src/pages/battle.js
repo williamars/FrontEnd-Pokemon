@@ -9,111 +9,167 @@ import menu_logo from "../images/menu_logo.png"
 import arena_10 from "../images/arena_1.png"
 import Header from "../components/header"
 import axios from "axios";
-var personId = "5fa9a53693fd49001730fbca";
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-var i= getRandomIntInclusive(1, 394);
-var b = "Charizard";
-var botName = b;
-var botPokemonHP = 2000;
-var personPokemonName = "";
-var personPokemonAttack = 0;
-var personPokemonHP = 0;
-var personPokemonHPcurr = 0;
-var personPokemonNormal = "";
-var personPokemonSpecial = "";
 
-function botPokemon(name_pok_bot){
-    var botName = name_pok_bot;
-    var botURL = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+botName.toLowerCase()+".gif";
-    return(
-        <div>
-            <img className="screen-background" src={arena_10}></img>
-            <img className="bot-pokemon" src={botURL}></img>
-        </div>
-    )
-}
+var i = Math.floor(Math.random() * 3)
 
-class Moves {
-    constructor(fast_move, charged_move) {
-        this.fast_move = fast_move;
-        this.charged_move = charged_move;
-    }
-}
-
-class Stats {
-    constructor(base_attack, base_defense, base_stamina){
-        this.base_attack = base_attack;
-        this.base_defense = base_defense;
-        this.base_stamina = base_stamina;
-    }
-}
-
-class Pokemon {
-    constructor(name, form, stats, type, moves){
-        this.name = name;
-        this.form = form;
-        this.stats = stats;
-        this.type = type;
-        this.moves = moves;
-    }
-}
-
-function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
-    var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
-    axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
-    .then(resp=> {
-        console.log(resp.status)
-        console.log(resp)
-    }).catch(erro => console.log(erro))
-}
-
-function normalAttack() {
-    if (personPokemonHPcurr <= 0){
-        alert("You died already, try again later.")
-    }
-    else {
-        botPokemonHP = botPokemonHP - personPokemonAttack
-        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.2)) + 1
-        personPokemonHPcurr = personPokemonHPcurr - counterAttack
-        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
-        alert(personPokemonName + " used " + "Normal Attack" + "!" + "\nCharizard used Counter Attack!")
-
-        if (botPokemonHP <= 0) {
-            printHP = "You defeated " + botName + "!";
-            addPokemon("charizard", "Legendary", "Event", 300, 300, 500);
-        }
-        alert(printHP);
-        console.log("hp do mano",personPokemonHP)
-    }
-    
-}
-
-function specialAttack() {
-    if (personPokemonHPcurr <= 0){
-        alert("You died already, try again later.")
-    }
-    else {
-        botPokemonHP = botPokemonHP - (personPokemonAttack*1.5);
-        var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.3)) + 1
-        personPokemonHPcurr = personPokemonHPcurr - counterAttack
-        var printHP = botName+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
-        alert(personPokemonName + " used " + "Special Attack" + "!" + "\nCharizard used Special Counter Attack!")
-        if (botPokemonHP <= 0) {
-            printHP = "You defeated " + botName + "!";
-            addPokemon("charizard", "Legendary", "Event", 300, 300, 500);
-        }
-        alert(printHP);
-    }
-}
-
-function GetStats() {
+function GetStats(teste) {
+    console.log("teste",teste)
+    var test = teste.test
     var type_list = new Array();
     var move_list = new Array();
     const [totalReactPackages, setTotalReactPackages] = useState([]);
+    var personId = "5fa9a53693fd49001730fbca";
+    var b = ["Charizard", "Venusaur", "Blastoise"];
+    var [botPokemonHP, setbotPokemonHP] = useState(2000);
+    var [personPokemonName, setPersonPokemonName] = useState("");
+    var [personPokemonAttack, setPersonPokemonAttack] = useState();
+    var [personPokemonHP, setPersonPokemonHP] = useState();
+    var [personPokemonHPcurr, setPersonPokemonHPcurr] = useState(personPokemonHP);
+    var [personPotions, setPersonPotions] = useState(3)
+    var personPokemonNormal = "";
+    var personPokemonSpecial = "";
+    var [youDead,setYouDead] = useState(false)
+    var [youRan, setYouRan] = useState(false)
+    var [youHealed, setYouHealed] = useState(false)
+
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function botPokemon(name_pok_bot){
+        var botURL = "https://img.pokemondb.net/sprites/black-white/anim/normal/"+b[i].toLowerCase()+".gif";
+        return(
+            <div>
+                <img className="screen-background" src={arena_10}></img>
+                <img className="bot-pokemon" src={botURL}></img>
+            </div>
+        )
+    }
+
+    class Moves {
+        constructor(fast_move, charged_move) {
+            this.fast_move = fast_move;
+            this.charged_move = charged_move;
+        }
+    }
+
+    class Stats {
+        constructor(base_attack, base_defense, base_stamina){
+            this.base_attack = base_attack;
+            this.base_defense = base_defense;
+            this.base_stamina = base_stamina;
+        }
+    }
+
+    class Pokemon {
+        constructor(name, form, stats, type, moves){
+            this.name = name;
+            this.form = form;
+            this.stats = stats;
+            this.type = type;
+            this.moves = moves;
+        }
+    }
+
+    function addPokemon(pName, pType, pForm, pAttack, pDefense, pStamina) {
+        var body = {pokemon: pName, type: pType, form:pForm, attack: pAttack, defense: pDefense, stamina: pStamina}
+        axios.post('https://backend-pokemon.herokuapp.com/users/pokemon/'+personId, body)
+        .then(resp=> {
+            console.log(resp.status)
+            console.log(resp)
+        }).catch(erro => console.log(erro))
+    }
+
+    function normalAttack() {
+        console.log("teste no ataque normal", test)
+        
+        if (youRan) {
+            alert("You already ran away!")
+        } else {
+            if (personPokemonHPcurr <= 0){
+                alert("You died already, try again later.")
+            }
+            else {
+                setbotPokemonHP(botPokemonHP - personPokemonAttack)
+                var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.2)) + 1
+                setPersonPokemonHPcurr(personPokemonHPcurr - counterAttack)
+                console.log("hp do mano",personPokemonHPcurr - counterAttack)
+                
+                if ((personPokemonHPcurr - counterAttack <= 0) || test) {
+                    setYouDead(true);
+                    setPersonPokemonHPcurr(0)
+                }
+                var printHP = b[i]+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+                alert(personPokemonName + " used " + "Normal Attack" + "!" + "\n"+b[i]+" used Counter Attack!")
+
+                if (botPokemonHP <= 0) {
+                    printHP = "You defeated " + b[i] + "!";
+                    addPokemon(b[i], "Legendary", "Event", 300, 300, 500);
+                }
+                alert(printHP);
+            }
+        }
+        
+    }
+
+    function specialAttack() {
+        if (youRan) {
+            alert("You already ran away!")
+        } else {
+            if (personPokemonHPcurr <= 0){
+                alert("You died already, try again later.")
+            }
+            else {
+                setbotPokemonHP(botPokemonHP - (personPokemonAttack*1.5))
+                var counterAttack = Math.floor(Math.random() * (personPokemonHP * 0.3)) + 1
+                setPersonPokemonHPcurr(personPokemonHPcurr - counterAttack)
+                if ((personPokemonHPcurr - counterAttack <= 0 || test)) {
+                    setYouDead(true);
+                    setPersonPokemonHPcurr(0)
+                }
+                var printHP = b[i]+"'s HP: " + botPokemonHP.toString() + "/2000" + "\n" + personPokemonName+"'s HP: " + personPokemonHPcurr + "/" + personPokemonHP 
+                alert(personPokemonName + " used " + "Special Attack" + "!" + "\n"+b[i]+" used Special Counter Attack!")
+                if (botPokemonHP <= 0) {
+                    printHP = "You defeated " + b[i] + "!";
+                    addPokemon(b[i], "Legendary", "Event", 300, 300, 500);
+                }
+                alert(printHP);
+            }
+        }
+    }
+
+    function healPokemon() {
+        setYouHealed(true)
+        if (youRan) {
+            alert("You already ran away!")
+        } else if (youDead){
+            alert("You can't use a potion ona dead body!")
+        } else{
+            if (personPotions > 0){
+                var heal = getRandomIntInclusive(300,420);
+                setPersonPokemonHPcurr(personPokemonHPcurr + heal)  
+                setPersonPotions(personPotions - 1)
+                console.log("potions", personPotions - 1)
+                alert("+"+heal+" recovered!")
+            } else {
+                alert("You are out of potions")
+            }
+        }
+    }
+
+    function runForest() {
+        if (youRan) {
+            alert("You already ran away boy")
+        } else if (youDead) {
+            alert("You can't run if you're dead")
+        } else {
+            setYouRan(true)
+        }
+        
+    }
+
     useEffect(() => {
         const pokemon_battle = {
             method: 'GET',
@@ -211,12 +267,12 @@ function GetStats() {
                 move_ = move_list[i-1];
                 atk = obj[i].base_attack;
                 dfs = obj[i].base_defense;
-                personPokemonHP = obj[i].base_stamina * 10;
-                personPokemonHPcurr = personPokemonHP
+                setPersonPokemonHP(obj[i].base_stamina * 12)
+                setPersonPokemonHPcurr(obj[i].base_stamina * 12)
                 name = obj[i].pokemon_name.toLowerCase();
                 form = obj[i].form.toLowerCase();
-                personPokemonAttack = atk;
-                personPokemonName = obj[i].pokemon_name;
+                setPersonPokemonAttack(atk);
+                setPersonPokemonName(obj[i].pokemon_name);
                 // Criando um Stats:
                 var stts = new Stats(atk, dfs, stm);
                 // Criando um Pokemon:
@@ -229,8 +285,15 @@ function GetStats() {
           });
     }, []);
     require('../components/battle.css')
+
     return (
-        <div class="big-container">
+        <div>
+            <h1 className="little-container" color="black">YOU: {personPokemonHPcurr}/{personPokemonHP} | {b[i]}: {botPokemonHP}/2000</h1>
+            {youDead && <h1 className="little-container" color="black" >Dead</h1>}
+            {youRan && <h1 className="little-container" color="black">Fled</h1>}
+            {youHealed && <h1 data-testid="healed" className="little-container">Healed {3-personPotions}/3</h1>}
+            {botPokemon(b[i])}
+        <div className="big-container">
             {totalReactPackages.map(pokemon => {
                 var name = pokemon.pokemon;
                 var defense = pokemon.defense;
@@ -241,18 +304,26 @@ function GetStats() {
                 var url = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/"+name.toString()+".gif"
                 personPokemonName = name    
                 return(
-                    <div class="background">
+                    // <div className="little-container">
+                    //     {youDead && <h3>Your pokemon is DEAD :(</h3>}
+                    //     {youRan && <h3>You fled!</h3>}
+                    // </div>
+                    <div className="background">
                         <div>
-                            <img class="person-pokemon" src={url}></img>
+                            <img className="person-pokemon" src={url}></img>
                         </div>
-                        <div className="buttons-box">
-                            <button onClick={normalAttack} className="info">Normal Attack</button>
-                            <button onClick={specialAttack} className="info-special">Special Attack</button>
-                        </div>
+                        
                     </div>
                     )
                     
                     })}
+            <div className="buttons-box">
+                <button data-testid="normal-attack" onClick={normalAttack} className="info">Normal Attack</button>
+                <button data-testid="special-attack" onClick={specialAttack} className="info-special">Special Attack</button>
+                <button data-testid="potion" onClick={healPokemon} className="info-heal">Potion</button>    
+                <button data-testid="run" onClick={runForest} className="info-run">Run</button>
+            </div>
+        </div>
         </div>
         
     );
@@ -260,19 +331,24 @@ function GetStats() {
 export { GetStats};
 
 
-export { botPokemon};
 
-export default class BattlePage extends Component {
-    
-    render() {
-        require('../components/battle.css')
-        require('../components/header.css')
-        return(
-            <div className="body">
-                <Header/>
-                {botPokemon(b)}
-                <GetStats/>
-            </div>
-            
-        );
-    }}
+export default function battle(props) {
+
+    let testando = false;
+    if (props.state != undefined) {
+        testando = props.state.test
+    }
+    const test = testando
+
+    console.log("teste na renderização", test)
+
+    require('../components/battle.css')
+    require('../components/header.css')
+    return(
+        <div className="body">
+            <Header/>
+            <GetStats test={test}/>
+        </div>
+        
+    );
+    }
