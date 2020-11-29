@@ -17,6 +17,11 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function refreshPage() {
+    window.location.reload(false);
+}
+    
+
 function gifFix(pokemon_name){
     if (pokemon_name == 'farfetch’d'){
         pokemon_name = 'farfetchd'
@@ -214,8 +219,10 @@ export default class PokedexPage extends Component {
         return(
             <div className="body">
             <Header siteTitle="Pokedex"/>
+            <div class="store-items">
+            <button onClick={refreshPage}>reload!</button>
+            </div>
             <GetNames/>
-
             </div>
         );
     }
