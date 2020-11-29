@@ -44,6 +44,9 @@ const Header = ({ siteTitle }) => (
       <Link to="/profile" className="header-button">
         Perfil
       </Link>
+      <Link to="/chargedmoves" className="header-button">
+        Charged Moves
+      </Link>
     </div>
   </header>
 )
