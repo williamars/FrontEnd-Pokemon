@@ -15,6 +15,6 @@ it("Mostra a lista de golpes", () => {
       },
     },
   }
-  const app = mount(<MovesPage {...props} />)
+  const app = mount(<ChargedMovesPage {...props} />)
   expect(toJson(app)).toMatchSnapshot()
 })

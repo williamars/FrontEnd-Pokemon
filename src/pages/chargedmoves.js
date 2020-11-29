@@ -14,7 +14,7 @@ import axios from "axios";
 import Header from "../components/header"
 
     
-export default class MovesPage extends Component {
+export default class ChargedMovesPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
