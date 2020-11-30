@@ -62,6 +62,18 @@ exports[`Header Header Renderizando Corretamente 1`] = `
     >
       Evento
     </a>
+    <a
+      className="header-button"
+      href="/moves"
+    >
+      Golpes
+    </a>
+    <a
+      className="header-button"
+      href="/profile"
+    >
+      Perfil
+    </a>
   </div>
 </header>
 `;

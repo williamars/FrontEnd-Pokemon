@@ -1,0 +1,1537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filtra a lista de golpes por tipo 1`] = `
+<MovesPage
+  location={
+    Object {
+      "state": Object {
+        "lista": Array [
+          Object {
+            "energy_delta": 1,
+            "name": "Test",
+            "power": 40,
+            "type": "fire",
+          },
+          Object {
+            "energy_delta": 5,
+            "name": "Debug",
+            "power": 100,
+            "type": "bug",
+          },
+        ],
+        "search": "",
+        "types": Array [
+          Object {
+            "checked": true,
+            "type": "grass",
+          },
+          Object {
+            "checked": false,
+            "type": "fire",
+          },
+          Object {
+            "checked": true,
+            "type": "water",
+          },
+          Object {
+            "checked": true,
+            "type": "bug",
+          },
+          Object {
+            "checked": true,
+            "type": "normal",
+          },
+          Object {
+            "checked": true,
+            "type": "dark",
+          },
+          Object {
+            "checked": true,
+            "type": "poison",
+          },
+          Object {
+            "checked": true,
+            "type": "electric",
+          },
+          Object {
+            "checked": true,
+            "type": "ice",
+          },
+          Object {
+            "checked": true,
+            "type": "ground",
+          },
+          Object {
+            "checked": true,
+            "type": "fairy",
+          },
+          Object {
+            "checked": true,
+            "type": "steel",
+          },
+          Object {
+            "checked": true,
+            "type": "fighting",
+          },
+          Object {
+            "checked": true,
+            "type": "psychic",
+          },
+          Object {
+            "checked": true,
+            "type": "rock",
+          },
+          Object {
+            "checked": true,
+            "type": "ghost",
+          },
+          Object {
+            "checked": true,
+            "type": "dragon",
+          },
+        ],
+      },
+    }
+  }
+>
+  <div
+    className="body"
+  >
+    <Header
+      siteTitle="Pokedex"
+    >
+      <header>
+        <div
+          className="big-header"
+        >
+          <a>
+            <img
+              className="trainer-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="logo-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="menu"
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+        <div
+          className="header"
+        >
+          <mockConstructor
+            className="header-button"
+            to="/mypokemons"
+          >
+            <a
+              className="header-button"
+              href="/mypokemons"
+            >
+              Meus Pokémons
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/pokedex"
+          >
+            <a
+              className="header-button"
+              href="/pokedex"
+            >
+              Pokedex
+            </a>
+          </mockConstructor>
+          <a
+            className="header-button"
+          >
+            Amigos
+          </a>
+          <mockConstructor
+            className="header-button"
+            to="/store"
+          >
+            <a
+              className="header-button"
+              href="/store"
+            >
+              Capturar
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/battle"
+          >
+            <a
+              className="header-button"
+              href="/battle"
+            >
+              Batalha
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="evento"
+            to="/dungeon"
+          >
+            <a
+              className="evento"
+              href="/dungeon"
+            >
+              Evento
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/moves"
+          >
+            <a
+              className="header-button"
+              href="/moves"
+            >
+              Golpes
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/profile"
+          >
+            <a
+              className="header-button"
+              href="/profile"
+            >
+              Perfil
+            </a>
+          </mockConstructor>
+        </div>
+      </header>
+    </Header>
+    <div
+      className="filter_bar"
+    >
+      <div
+        class="dropdown is-hoverable"
+      >
+        <div
+          class="dropdown-trigger"
+        >
+          <button
+            aria-controls="dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="button filter_item"
+          >
+            <span>
+              Tipo
+            </span>
+            <span
+              className="icon is-small"
+            >
+              <i
+                aria-hidden="true"
+                className="fas fa-angle-down"
+              />
+            </span>
+          </button>
+        </div>
+        <div
+          class="dropdown-menu"
+          id="dropdown-menu"
+          role="menu"
+        >
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="grass"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            grass
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fire"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fire
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="water"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            water
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="bug"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            bug
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="normal"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            normal
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dark"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dark
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="poison"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            poison
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="electric"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            electric
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ice"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ice
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ground"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ground
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fairy"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fairy
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="steel"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            steel
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fighting"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fighting
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="psychic"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            psychic
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="rock"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            rock
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ghost"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ghost
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dragon"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dragon
+          </label>
+        </div>
+      </div>
+      <div
+        className="control filter_item"
+      >
+        <input
+          className="input"
+          name="search"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="big-container"
+    >
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Test
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            40
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            fire
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            1
+          </a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Debug
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            100
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            bug
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            5
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</MovesPage>
+`;
+
+exports[`Mostra a lista de golpes 1`] = `
+<MovesPage
+  location={
+    Object {
+      "state": Object {
+        "lista": Array [
+          Object {
+            "energy_delta": 1,
+            "name": "Test",
+            "power": 40,
+            "type": "fire",
+          },
+          Object {
+            "energy_delta": 5,
+            "name": "Debug",
+            "power": 100,
+            "type": "bug",
+          },
+        ],
+        "search": "",
+        "types": Array [
+          Object {
+            "checked": true,
+            "type": "grass",
+          },
+          Object {
+            "checked": true,
+            "type": "fire",
+          },
+          Object {
+            "checked": true,
+            "type": "water",
+          },
+          Object {
+            "checked": true,
+            "type": "bug",
+          },
+          Object {
+            "checked": true,
+            "type": "normal",
+          },
+          Object {
+            "checked": true,
+            "type": "dark",
+          },
+          Object {
+            "checked": true,
+            "type": "poison",
+          },
+          Object {
+            "checked": true,
+            "type": "electric",
+          },
+          Object {
+            "checked": true,
+            "type": "ice",
+          },
+          Object {
+            "checked": true,
+            "type": "ground",
+          },
+          Object {
+            "checked": true,
+            "type": "fairy",
+          },
+          Object {
+            "checked": true,
+            "type": "steel",
+          },
+          Object {
+            "checked": true,
+            "type": "fighting",
+          },
+          Object {
+            "checked": true,
+            "type": "psychic",
+          },
+          Object {
+            "checked": true,
+            "type": "rock",
+          },
+          Object {
+            "checked": true,
+            "type": "ghost",
+          },
+          Object {
+            "checked": true,
+            "type": "dragon",
+          },
+        ],
+      },
+    }
+  }
+>
+  <div
+    className="body"
+  >
+    <Header
+      siteTitle="Pokedex"
+    >
+      <header>
+        <div
+          className="big-header"
+        >
+          <a>
+            <img
+              className="trainer-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="logo-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="menu"
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+        <div
+          className="header"
+        >
+          <mockConstructor
+            className="header-button"
+            to="/mypokemons"
+          >
+            <a
+              className="header-button"
+              href="/mypokemons"
+            >
+              Meus Pokémons
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/pokedex"
+          >
+            <a
+              className="header-button"
+              href="/pokedex"
+            >
+              Pokedex
+            </a>
+          </mockConstructor>
+          <a
+            className="header-button"
+          >
+            Amigos
+          </a>
+          <mockConstructor
+            className="header-button"
+            to="/store"
+          >
+            <a
+              className="header-button"
+              href="/store"
+            >
+              Capturar
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/battle"
+          >
+            <a
+              className="header-button"
+              href="/battle"
+            >
+              Batalha
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="evento"
+            to="/dungeon"
+          >
+            <a
+              className="evento"
+              href="/dungeon"
+            >
+              Evento
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/moves"
+          >
+            <a
+              className="header-button"
+              href="/moves"
+            >
+              Golpes
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/profile"
+          >
+            <a
+              className="header-button"
+              href="/profile"
+            >
+              Perfil
+            </a>
+          </mockConstructor>
+        </div>
+      </header>
+    </Header>
+    <div
+      className="filter_bar"
+    >
+      <div
+        class="dropdown is-hoverable"
+      >
+        <div
+          class="dropdown-trigger"
+        >
+          <button
+            aria-controls="dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="button filter_item"
+          >
+            <span>
+              Tipo
+            </span>
+            <span
+              className="icon is-small"
+            >
+              <i
+                aria-hidden="true"
+                className="fas fa-angle-down"
+              />
+            </span>
+          </button>
+        </div>
+        <div
+          class="dropdown-menu"
+          id="dropdown-menu"
+          role="menu"
+        >
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="grass"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            grass
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fire"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fire
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="water"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            water
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="bug"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            bug
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="normal"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            normal
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dark"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dark
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="poison"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            poison
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="electric"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            electric
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ice"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ice
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ground"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ground
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fairy"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fairy
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="steel"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            steel
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fighting"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fighting
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="psychic"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            psychic
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="rock"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            rock
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ghost"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ghost
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dragon"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dragon
+          </label>
+        </div>
+      </div>
+      <div
+        className="control filter_item"
+      >
+        <input
+          className="input"
+          name="search"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="big-container"
+    >
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Test
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            40
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            fire
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            1
+          </a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Debug
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            100
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            bug
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            5
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</MovesPage>
+`;
+
+exports[`Pesquisa a lista de golpes por nome 1`] = `
+<MovesPage
+  location={
+    Object {
+      "state": Object {
+        "lista": Array [
+          Object {
+            "energy_delta": 1,
+            "name": "Test",
+            "power": 40,
+            "type": "fire",
+          },
+          Object {
+            "energy_delta": 5,
+            "name": "Debug",
+            "power": 100,
+            "type": "bug",
+          },
+        ],
+        "search": "De",
+        "types": Array [
+          Object {
+            "checked": true,
+            "type": "grass",
+          },
+          Object {
+            "checked": true,
+            "type": "fire",
+          },
+          Object {
+            "checked": true,
+            "type": "water",
+          },
+          Object {
+            "checked": true,
+            "type": "bug",
+          },
+          Object {
+            "checked": true,
+            "type": "normal",
+          },
+          Object {
+            "checked": true,
+            "type": "dark",
+          },
+          Object {
+            "checked": true,
+            "type": "poison",
+          },
+          Object {
+            "checked": true,
+            "type": "electric",
+          },
+          Object {
+            "checked": true,
+            "type": "ice",
+          },
+          Object {
+            "checked": true,
+            "type": "ground",
+          },
+          Object {
+            "checked": true,
+            "type": "fairy",
+          },
+          Object {
+            "checked": true,
+            "type": "steel",
+          },
+          Object {
+            "checked": true,
+            "type": "fighting",
+          },
+          Object {
+            "checked": true,
+            "type": "psychic",
+          },
+          Object {
+            "checked": true,
+            "type": "rock",
+          },
+          Object {
+            "checked": true,
+            "type": "ghost",
+          },
+          Object {
+            "checked": true,
+            "type": "dragon",
+          },
+        ],
+      },
+    }
+  }
+>
+  <div
+    className="body"
+  >
+    <Header
+      siteTitle="Pokedex"
+    >
+      <header>
+        <div
+          className="big-header"
+        >
+          <a>
+            <img
+              className="trainer-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="logo-photo"
+              src="test-file-stub"
+            />
+          </a>
+          <a>
+            <img
+              className="menu"
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+        <div
+          className="header"
+        >
+          <mockConstructor
+            className="header-button"
+            to="/mypokemons"
+          >
+            <a
+              className="header-button"
+              href="/mypokemons"
+            >
+              Meus Pokémons
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/pokedex"
+          >
+            <a
+              className="header-button"
+              href="/pokedex"
+            >
+              Pokedex
+            </a>
+          </mockConstructor>
+          <a
+            className="header-button"
+          >
+            Amigos
+          </a>
+          <mockConstructor
+            className="header-button"
+            to="/store"
+          >
+            <a
+              className="header-button"
+              href="/store"
+            >
+              Capturar
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/battle"
+          >
+            <a
+              className="header-button"
+              href="/battle"
+            >
+              Batalha
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="evento"
+            to="/dungeon"
+          >
+            <a
+              className="evento"
+              href="/dungeon"
+            >
+              Evento
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/moves"
+          >
+            <a
+              className="header-button"
+              href="/moves"
+            >
+              Golpes
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/profile"
+          >
+            <a
+              className="header-button"
+              href="/profile"
+            >
+              Perfil
+            </a>
+          </mockConstructor>
+        </div>
+      </header>
+    </Header>
+    <div
+      className="filter_bar"
+    >
+      <div
+        class="dropdown is-hoverable"
+      >
+        <div
+          class="dropdown-trigger"
+        >
+          <button
+            aria-controls="dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="button filter_item"
+          >
+            <span>
+              Tipo
+            </span>
+            <span
+              className="icon is-small"
+            >
+              <i
+                aria-hidden="true"
+                className="fas fa-angle-down"
+              />
+            </span>
+          </button>
+        </div>
+        <div
+          class="dropdown-menu"
+          id="dropdown-menu"
+          role="menu"
+        >
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="grass"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            grass
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fire"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fire
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="water"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            water
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="bug"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            bug
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="normal"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            normal
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dark"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dark
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="poison"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            poison
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="electric"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            electric
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ice"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ice
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ground"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ground
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fairy"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fairy
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="steel"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            steel
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="fighting"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            fighting
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="psychic"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            psychic
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="rock"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            rock
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="ghost"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            ghost
+          </label>
+          <label
+            className="checkbox"
+          >
+            <input
+              checked={true}
+              name="dragon"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            dragon
+          </label>
+        </div>
+      </div>
+      <div
+        className="control filter_item"
+      >
+        <input
+          className="input"
+          name="search"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="big-container"
+    >
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Test
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            40
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            fire
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            1
+          </a>
+        </div>
+      </div>
+      <div>
+        <div
+          class="store-items"
+        >
+          <a
+            class="store-text-name"
+          >
+            Debug
+          </a>
+          <a
+            class="store-text"
+          >
+            Poder: 
+            100
+          </a>
+          <a
+            class="store-text"
+          >
+            Tipo: 
+            bug
+          </a>
+          <a
+            class="store-text"
+          >
+            Gasto de Energia: 
+            5
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</MovesPage>
+`;

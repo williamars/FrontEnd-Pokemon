@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render the homepage for the non logged in user 1`] = `
+exports[`Tem que renderizar o nome do usuário que está logado 1`] = `
 <deleteAccount
   location={
     Object {
@@ -100,6 +100,28 @@ exports[`should render the homepage for the non logged in user 1`] = `
               href="/dungeon"
             >
               Evento
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/moves"
+          >
+            <a
+              className="header-button"
+              href="/moves"
+            >
+              Golpes
+            </a>
+          </mockConstructor>
+          <mockConstructor
+            className="header-button"
+            to="/profile"
+          >
+            <a
+              className="header-button"
+              href="/profile"
+            >
+              Perfil
             </a>
           </mockConstructor>
         </div>
